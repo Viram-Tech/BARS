@@ -1,31 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
-
-export const indicLanguages = [
-  { code: 'as', name: 'Assamese', nativeName: 'অসমীয়া' },
-  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা' },
-  { code: 'brx', name: 'Bodo', nativeName: 'बड़ो' },
-  { code: 'doi', name: 'Dogri', nativeName: 'डोगरी' },
-  { code: 'gu', name: 'Gujarati', nativeName: 'ગુજરાતી' },
-  { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी' },
-  { code: 'kn', name: 'Kannada', nativeName: 'ಕನ್ನಡ' },
-  { code: 'ks', name: 'Kashmiri', nativeName: 'कॉशुर' },
-  { code: 'kok', name: 'Konkani', nativeName: 'कोंकणी' },
-  { code: 'mai', name: 'Maithili', nativeName: 'मैथिली' },
-  { code: 'ml', name: 'Malayalam', nativeName: 'മലയാളം' },
-  { code: 'mni', name: 'Manipuri', nativeName: 'মৈতৈলোন্' },
-  { code: 'mr', name: 'Marathi', nativeName: 'मराठी' },
-  { code: 'ne', name: 'Nepali', nativeName: 'नेपाली' },
-  { code: 'or', name: 'Odia', nativeName: 'ଓଡ଼ିଆ' },
-  { code: 'pa', name: 'Punjabi', nativeName: 'ਪੰਜਾਬੀ' },
-  { code: 'sa', name: 'Sanskrit', nativeName: 'संस्कृतम्' },
-  { code: 'sat', name: 'Santali', nativeName: 'ᱥᱟᱱᱛᱟᱲᱤ' },
-  { code: 'sd', name: 'Sindhi', nativeName: 'سنڌي' },
-  { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்' },
-  { code: 'te', name: 'Telugu', nativeName: 'తెలుగు' },
-  { code: 'ur', name: 'Urdu', nativeName: 'اُردُو' },
-] as const;
-
-export type LanguageCode = (typeof indicLanguages)[number]['code'];
+import { indicLanguages, type LanguageCode } from '@/lib/languages';
 
 type ShellCopy = {
   navigate: string;
@@ -58,6 +32,7 @@ const englishCopy: ShellCopy = {
 };
 
 const shellCopy: Partial<Record<LanguageCode, ShellCopy>> = {
+  en: englishCopy,
   as: { ...englishCopy, navigate: 'পথ', home: 'ঘৰ', repository: 'ভঁৰাল', dashboard: 'ৰাষ্ট্ৰীয় তথ্য', directory: 'ডাইৰেক্টৰী', workspace: 'কৰ্মক্ষেত্ৰ', designSystem: 'ডিজাইন ব্যৱস্থা', askBars: 'BARS-ক সোধক', language: 'ভাষা', system: 'চিস্টেম', light: 'পাতল', dark: 'ডাঠ' },
   bn: { ...englishCopy, navigate: 'নেভিগেট', home: 'হোম', repository: 'রিপোজিটরি', dashboard: 'জাতীয় তথ্য', directory: 'ডিরেক্টরি', workspace: 'কর্মক্ষেত্র', designSystem: 'ডিজাইন সিস্টেম', askBars: 'BARS-কে জিজ্ঞাসা', language: 'ভাষা', system: 'সিস্টেম', light: 'হালকা', dark: 'গাঢ়' },
   brx: { ...englishCopy, navigate: 'थावनि', home: 'नखर', repository: 'दाथाय', dashboard: 'रास्ट्रिय बिबुं', directory: 'डाइरेक्टरी', workspace: 'हाबाफारि', designSystem: 'डिजाइन सिस्टम', askBars: 'BARS सों', language: 'राव', system: 'सिस्टम', light: 'फिसा', dark: 'गोहो' },
@@ -87,6 +62,7 @@ type LanguageContextValue = {
   setLanguage: (language: LanguageCode) => void;
   copy: ShellCopy;
   languageName: string;
+  direction: 'ltr' | 'rtl';
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
@@ -95,7 +71,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<LanguageCode>(() => {
     if (typeof window === 'undefined') return 'hi';
     const saved = localStorage.getItem('bars-language');
-    return indicLanguages.some((item) => item.code === saved) ? (saved as LanguageCode) : 'hi';
+    return indicLanguages.some((item) => item.code === saved) ? (saved as LanguageCode) : 'en';
   });
 
   useEffect(() => {
@@ -108,7 +84,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     language,
     setLanguage,
     copy: shellCopy[language] ?? englishCopy,
-    languageName: indicLanguages.find((item) => item.code === language)?.nativeName ?? 'हिन्दी',
+    languageName: indicLanguages.find((item) => item.code === language)?.nativeName ?? 'English',
+    direction: language === 'ur' || language === 'sd' || language === 'ks' ? 'rtl' as const : 'ltr' as const,
   }), [language]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

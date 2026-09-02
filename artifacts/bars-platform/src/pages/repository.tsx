@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { Search, Filter, MapPin, ChevronDown, ShieldCheck, Bookmark, BookmarkCheck, ArrowUpRight } from 'lucide-react';
 import { resources, type Resource } from '@/lib/data';
 import { PageHeader, Button } from '@/components/shared';
-import repositoryImg from '@assets/generated_images/repository.jpg'; // We'll assume the generated image goes here, but it's in attached_assets. Wait, we should use the exact path.
+import { mediaLibrary } from '@/lib/media-library';
 
 function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved: boolean; onToggle: () => void }) {
   const [showRecord, setShowRecord] = useState(false);
@@ -97,7 +97,7 @@ export default function Repository() {
         eyebrow="01 / Knowledge repository" 
         title="Evidence you can use." 
         description="A working library of Indian road-safety research, policy, field practice, and tools. Every record is sourced, dated, and ready to build on."
-        imageSrc={repositoryImg}
+        imageSrc={mediaLibrary.evidence.src}
       >
         <Button variant="outline" onClick={downloadCatalogue} testId="button-repository-download" className="bg-background">
           Download catalogue

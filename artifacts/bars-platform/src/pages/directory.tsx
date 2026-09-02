@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Building2, CheckCircle2, MapPin, Search, UserRound, Users, X, ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { directoryRecords } from '@/lib/data';
 import { PageHeader, SectionLabel, Button } from '@/components/shared';
-import directoryImg from '@assets/generated_images/directory.jpg';
+import { mediaLibrary } from '@/lib/media-library';
 
 export default function Directory() {
   const [query, setQuery] = useState('');
@@ -22,7 +22,7 @@ export default function Directory() {
         eyebrow="03 / Verified directory" 
         title="The people doing the work." 
         description="A trusted starting point for collaboration across Sarkaar, Bazaar, and Samaaj. Profiles are reviewed for identity, role, and active road-safety work."
-        imageSrc={directoryImg}
+        imageSrc={mediaLibrary.community.src}
       >
         <Button variant="amber" onClick={() => setContributeOpen(true)} testId="button-directory-suggest" className="shadow-sm hover:shadow-md">
           <Users size={16} /> Suggest a record

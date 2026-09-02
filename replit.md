@@ -42,8 +42,8 @@ An evidence-led platform connecting India’s road-safety research, data, practi
 - National intelligence dashboard with state comparison and coverage indicators
 - Verified stakeholder directory with organisation/expert filters and contribution prompt
 - Living design-system showcase and global Ask BARS assistant shell
-- 22-language Indic selector with persisted preference, native labels, and RTL handling
-- Media-rich visual briefing blocks with responsive imagery and field-film video playback
+- 22 official Indic languages plus optional English, with persisted preference, native labels, and RTL handling
+- Original high-resolution road-safety visuals, responsive media blocks, and autoplay-safe open-source field-film playback
 
 ## User preferences
 

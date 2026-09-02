@@ -1,4 +1,5 @@
 import { Play, ShieldCheck } from 'lucide-react';
+import { mediaLibrary } from '@/lib/media-library';
 
 type MediaStoryProps = {
   image: string;
@@ -7,8 +8,6 @@ type MediaStoryProps = {
   description: string;
   className?: string;
 };
-
-const fieldFilmUrl = 'https://assets.mixkit.co/videos/preview/mixkit-traffic-on-a-road-in-the-city-11-large.mp4';
 
 export function MediaStory({ image, eyebrow, title, description, className = '' }: MediaStoryProps) {
   return (
@@ -34,8 +33,8 @@ export function MediaStory({ image, eyebrow, title, description, className = '' 
         <h3 className="mt-4 font-display text-3xl leading-tight text-primary dark:text-foreground sm:text-4xl">{title}</h3>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
         <div className="mt-7 overflow-hidden rounded-xl border border-border bg-muted/30">
-          <video controls muted loop playsInline preload="metadata" poster={image} className="aspect-video w-full bg-primary object-cover">
-            <source src={fieldFilmUrl} type="video/mp4" />
+          <video autoPlay controls muted loop playsInline preload="metadata" poster={image} aria-label="Autoplay road-safety field film" className="aspect-video w-full bg-primary object-cover">
+            <source src={mediaLibrary.openSourceFieldFilm.src} type="video/mp4" />
             Your browser does not support embedded video. The field film is available with the BARS media brief.
           </video>
         </div>

@@ -10,13 +10,14 @@ import {
   MessageCircle, 
   Moon, 
   Sun, 
-  CircleHelp,
   SlidersHorizontal,
   ArrowUpRight,
   Languages,
   type LucideIcon 
 } from 'lucide-react';
-import { indicLanguages, useLanguage } from '@/lib/language-context';
+import { useLanguage } from '@/lib/language-context';
+import { indicLanguages } from '@/lib/languages';
+import barsLogo from '@assets/BARS_LOGO_1788333872731.png';
 
 type ThemeMode = 'light' | 'dark' | 'system';
 
@@ -28,7 +29,7 @@ export function Shell({
   onOpenAssistant: () => void;
 }) {
   const [location] = useLocation();
-  const { language, setLanguage, copy } = useLanguage();
+  const { language, setLanguage, copy, direction } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>(() => {
     if (typeof window === 'undefined') return 'light';
@@ -55,17 +56,11 @@ export function Shell({
   return (
     <div className="bars-grain min-h-[100dvh] bg-background text-foreground flex">
       {/* Sidebar */}
-      <aside className={`fixed inset-y-0 left-0 z-40 flex w-[280px] flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground transition-transform duration-300 md:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed inset-y-0 z-40 flex w-[280px] flex-col border-sidebar-border bg-sidebar text-sidebar-foreground transition-transform duration-300 md:translate-x-0 ${direction === 'rtl' ? 'right-0 border-l' : 'left-0 border-r'} ${mobileOpen ? 'translate-x-0' : direction === 'rtl' ? 'translate-x-full' : '-translate-x-full'}`}>
         <div className="flex h-[72px] items-center px-6">
           <Link href="/" data-testid="link-logo" className="focus-ring flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-secondary text-secondary-foreground font-mono-ui text-sm font-bold shadow-sm">
-              B
-            </span>
-            <span>
-              <span className="block text-[16px] font-extrabold tracking-[.15em] text-sidebar-foreground">BARS</span>
-              <span className="mt-0.5 block text-[9px] uppercase tracking-[.14em] text-sidebar-foreground/60">
-                Bharat Association<br />of Road Safety
-              </span>
+            <span className="flex h-12 w-[136px] items-center justify-center rounded-md bg-white px-2 shadow-sm">
+              <img src={barsLogo} alt="BARS — Bharat Association of Road Safety" className="max-h-10 w-full object-contain" />
             </span>
           </Link>
           <button aria-label="Close navigation" data-testid="button-close-menu" onClick={() => setMobileOpen(false)} className="focus-ring ml-auto p-2 md:hidden text-sidebar-foreground/70 hover:text-sidebar-foreground rounded-sm"><X size={18} /></button>
@@ -127,7 +122,7 @@ export function Shell({
       )}
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0 md:pl-[280px]">
+      <div className={`flex-1 flex flex-col min-w-0 ${direction === 'rtl' ? 'md:pr-[280px]' : 'md:pl-[280px]'}`}>
         <header className="sticky top-0 z-20 flex h-[72px] shrink-0 items-center justify-between border-b border-border bg-background/80 px-5 backdrop-blur-md md:px-8">
           <button aria-label="Open navigation" data-testid="button-open-menu" onClick={() => setMobileOpen(true)} className="focus-ring p-2 -ml-2 rounded-sm md:hidden hover:bg-muted"><Menu size={21} /></button>
           
@@ -146,7 +141,7 @@ export function Shell({
             
              <div className="mx-1 h-5 w-px bg-border" />
 
-             <div className="relative flex items-center">
+             <div className="relative flex items-center rounded-md border border-border bg-muted/40 pl-1">
                <Languages size={14} className="pointer-events-none absolute left-2 text-secondary" />
                <label className="sr-only" htmlFor="language-preference">{copy.language}</label>
                <select
@@ -154,30 +149,42 @@ export function Shell({
                  value={language}
                  onChange={(event) => setLanguage(event.target.value as typeof language)}
                  data-testid="select-language-preference"
-                 className="focus-ring h-9 max-w-[118px] appearance-none bg-transparent pl-7 pr-2 text-xs font-semibold text-muted-foreground outline-none hover:text-foreground cursor-pointer"
+                 title={copy.language}
+                 className="focus-ring h-9 max-w-[136px] appearance-none bg-transparent pl-7 pr-2 text-xs font-semibold text-muted-foreground outline-none hover:text-foreground cursor-pointer"
                >
-                 {indicLanguages.map((item) => <option key={item.code} value={item.code}>{item.nativeName} · {item.name}</option>)}
+                  <option value="en">English · English</option>
+                  <optgroup label="22 official Indic languages">
+                    {indicLanguages.filter((item) => item.code !== 'en').map((item) => <option key={item.code} value={item.code}>{item.nativeName} · {item.name}</option>)}
+                  </optgroup>
                </select>
              </div>
 
              <div className="mx-1 h-5 w-px bg-border" />
             
             <label className="sr-only" htmlFor="theme-preference">Theme preference</label>
-            <div className="relative flex items-center">
-              <select 
-                id="theme-preference" 
-                value={theme} 
-                onChange={(event) => setTheme(event.target.value as ThemeMode)} 
-                data-testid="select-theme-preference" 
-                className="focus-ring h-9 appearance-none bg-transparent pl-3 pr-7 text-xs font-semibold text-muted-foreground outline-none hover:text-foreground cursor-pointer"
-              >
+             <div className="flex items-center gap-1 rounded-md border border-border bg-muted/40 p-1">
+               <button
+                 type="button"
+                 aria-label={theme === 'dark' ? copy.light : copy.dark}
+                 title={theme === 'dark' ? copy.light : copy.dark}
+                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                 data-testid="button-theme-toggle"
+                 className="focus-ring flex h-7 w-7 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:bg-background hover:text-foreground"
+               >
+                 {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+               </button>
+               <label className="sr-only" htmlFor="theme-preference">{copy.language}</label>
+               <select
+                 id="theme-preference"
+                 value={theme}
+                 onChange={(event) => setTheme(event.target.value as ThemeMode)}
+                 data-testid="select-theme-preference"
+                 className="focus-ring hidden h-7 appearance-none bg-transparent px-1 text-[10px] font-semibold text-muted-foreground outline-none hover:text-foreground cursor-pointer sm:block"
+               >
                  <option value="system">{copy.system}</option>
                  <option value="light">{copy.light}</option>
                  <option value="dark">{copy.dark}</option>
-              </select>
-              <div className="pointer-events-none absolute right-2 text-muted-foreground">
-                {theme === 'dark' ? <Moon size={14} /> : theme === 'light' ? <Sun size={14} /> : <CircleHelp size={14} />}
-              </div>
+               </select>
             </div>
           </div>
         </header>

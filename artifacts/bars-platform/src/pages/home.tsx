@@ -2,13 +2,16 @@ import { ArrowRight, ArrowUpRight, BarChart3, BookOpen, MessageCircle, Network }
 import { Link } from 'wouter';
 import { SectionLabel } from '@/components/shared';
 import { MediaStory } from '@/components/media-story';
-import heroImg from '@assets/generated_images/hero.jpg';
+import { mediaLibrary } from '@/lib/media-library';
 
 export default function Home({ onAsk }: { onAsk: () => void }) {
   return (
     <div>
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-border bg-background px-5 pb-20 pt-16 sm:px-10 sm:pt-24 lg:px-16 lg:pb-32 lg:pt-28">
+        <video autoPlay muted loop playsInline preload="metadata" poster={mediaLibrary.hero.src} aria-hidden="true" className="pointer-events-none absolute right-0 top-0 hidden h-full w-[38%] object-cover opacity-[.08] mix-blend-multiply lg:block dark:mix-blend-screen">
+          <source src={mediaLibrary.openSourceFieldFilm.src} type="video/mp4" />
+        </video>
         <div className="mx-auto max-w-[1240px] relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
             <div className="animate-rise max-w-[820px]">
@@ -133,7 +136,7 @@ export default function Home({ onAsk }: { onAsk: () => void }) {
       <section className="px-5 py-20 sm:px-10 lg:px-16 lg:py-28 bg-background">
         <div className="mx-auto max-w-[1240px]">
           <MediaStory
-            image={heroImg}
+            image={mediaLibrary.hero.src}
             eyebrow="05 / Field perspective"
             title="See the street behind the statistic."
             description="Road safety becomes practical when data, design, and lived experience are viewed together. Explore a visual briefing built for the people who make journeys safer."
