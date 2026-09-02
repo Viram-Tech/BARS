@@ -3,6 +3,7 @@ import { Search, Filter, MapPin, ChevronDown, ShieldCheck, Bookmark, BookmarkChe
 import { resources, type Resource } from '@/lib/data';
 import { PageHeader, Button } from '@/components/shared';
 import { mediaLibrary } from '@/lib/media-library';
+import { BrandMark } from '@/components/brand-mark';
 
 function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved: boolean; onToggle: () => void }) {
   const [showRecord, setShowRecord] = useState(false);
@@ -32,8 +33,10 @@ function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved
       </p>
       
       <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-5">
-        <div>
-          <p className="text-sm font-semibold text-foreground">{resource.source}</p>
+        <div className="flex min-w-0 items-center gap-3">
+          <BrandMark name={resource.source} initials={resource.source.split(/\s+/).map((word) => word[0]).join('').slice(0, 2)} size="sm" />
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold text-foreground">{resource.source}</p>
           <p className="mt-1 flex items-center gap-2 font-mono-ui text-[11px] text-muted-foreground">
             <span>{resource.year}</span>
             <span className="h-1 w-1 rounded-full bg-border" />
@@ -41,6 +44,7 @@ function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved
             <span className="h-1 w-1 rounded-full bg-border" />
             <span>{resource.format}</span>
           </p>
+          </div>
         </div>
         <button 
           onClick={() => setShowRecord((current) => !current)} 

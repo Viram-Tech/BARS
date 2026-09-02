@@ -3,6 +3,7 @@ import { Building2, CheckCircle2, MapPin, Search, UserRound, Users, X, ArrowUpRi
 import { directoryRecords } from '@/lib/data';
 import { PageHeader, SectionLabel, Button } from '@/components/shared';
 import { mediaLibrary } from '@/lib/media-library';
+import { BrandMark } from '@/components/brand-mark';
 
 export default function Directory() {
   const [query, setQuery] = useState('');
@@ -107,9 +108,7 @@ export default function Directory() {
                     </div>
                     
                     <div className="mt-8 flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary/10 border border-secondary/20 font-mono-ui text-sm font-bold text-secondary shadow-inner">
-                        {record.initials}
-                      </div>
+                      <BrandMark name={record.name} initials={record.initials} size="lg" />
                       <div className="min-w-0 flex-1">
                         <h2 className="break-words text-lg font-bold leading-tight text-primary dark:text-foreground group-hover:text-secondary transition-colors">
                           {record.name}
@@ -122,9 +121,9 @@ export default function Directory() {
                   </div>
                   
                   <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+                    <span className="flex min-w-0 items-center gap-1.5 text-xs font-medium text-muted-foreground">
                       <MapPin size={14} className="text-secondary/70" />
-                      {record.location}
+                      <span className="truncate">{record.location}</span>
                     </span>
                     <span className={`rounded-sm px-2 py-1 font-mono-ui text-[10px] font-bold uppercase tracking-wider ${
                       record.network === 'Sarkaar' ? 'bg-primary/10 text-primary dark:text-primary-foreground' : 
