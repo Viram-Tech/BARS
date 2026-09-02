@@ -1,0 +1,236 @@
+A SARKAAR · BAZAAR · SAMAAJ initiative
+Target: 50% fewer road deaths by 2030 · SDG 3.6
+Help
+|
+Register
+|
+Live Data
+BARS — Bharat Association of Road Safety Volunteers
+Home
+Repository
+Directory
+Dashboard
+Network
+Contribute
+PS
+Night traffic on an Indian highway
+Home
+Live Data Dashboard
+Live Data Dashboard
+India Road Safety — The National Picture
+One standardised source of truth, harmonised from MoRTH · NCRB · iRAD — so government, industry and society act on the same numbers across all 28 states.
+
+Data updated: Aug 2026
+
+All India
+Coverage: 28 states · FY 2023–24 baseline
+1,72,890
+Annual fatalities (2023)
++2.6% YoY
+474
+Lives lost every day
+≈ 1 every 3 min
+1,214
+Crashes every day
++1.9% YoY
+₹5.96 L Cr
+Economic loss · 3.14% of GDP
+3.14% of GDP
+−3.8%
+vs baseline
+Progress to 2030 target
+Halving road deaths by 2030 — we are off track
+Under SDG 3.6 and the Brasilia Declaration, India committed to a 50% reduction in road fatalities by 2030. Against the baseline, fatalities have moved just −3.8% — leaving a wide gap to close in the years remaining.
+
+Baseline (0%)
+Goal: −50% by 2030
+−3.8%
+Achieved so far
+46.2%
+Gap to target
+2030
+Deadline year
+Trends & geography
+Where and when India is losing lives
+A nine-year fatality trend and a state-by-state intensity map, drawn from the same harmonised dataset.
+
+Road fatalities in India · 2016–2024
+Total annual deaths, all states
+
+Peak: 2023 · 1,72,890
+151k
+'16
+148k
+'17
+151k
+'18
+151k
+'19
+132k
+'20
+154k
+'21
+168k
+'22
+173k
+'23
+168k
+'24
+Reading the trend
+The 2020 dip reflects pandemic-era lockdowns; fatalities rebounded to an all-time peak in 2023 before easing in 2024.
+
+State fatality intensity
+Relative burden · all 28 states
+
+28 states
+UP
+TN
+MH
+MP
+KA
+RJ
+BR
+AP
+GJ
+WB
+TG
+KL
+OD
+HR
+PB
+JH
+CG
+AS
+UK
+HP
+DL
+JK
+GA
+TR
+ML
+MN
+NL
+SK
+Low
+High
+Hover a state for its intensity
+State rankings
+Top 10 states by road deaths
+The states carrying the heaviest absolute burden — where targeted intervention saves the most lives.
+
+Underlying datasets
+Rank	State / UT	Deaths (2023)	Share of top-10	Risk
+1	Uttar Pradesh	23,652	
+100%
+High
+2	Tamil Nadu	18,347	
+78%
+High
+3	Maharashtra	15,366	
+65%
+High
+4	Madhya Pradesh	13,798	
+58%
+High
+5	Karnataka	12,321	
+52%
+Medium
+6	Rajasthan	11,762	
+50%
+Medium
+7	Gujarat	7,618	
+32%
+Medium
+8	Andhra Pradesh	8,161	
+35%
+Medium
+9	Bihar	8,898	
+38%
+Medium
+10	West Bengal	6,002	
+25%
+Low
+What is driving the deaths
+Causes & the most vulnerable
+Two lenses on preventability — the behaviours behind crashes, and the road users who pay the highest price.
+
+Leading crash factors
+Share of fatal crashes
+Over-speeding
+71%
+Driving on wrong side
+24%
+Drunk driving
+31%
+Jumping red lights
+14%
+Mobile phone use
+9%
+Speeding dominates
+Over-speeding is implicated in 71% of fatal crashes — the single largest, and most preventable, factor.
+
+Vulnerable road users
+Share of fatalities
+Two-wheeler riders
+44%
+Pedestrians
+20%
+Car occupants
+15%
+Cyclists & NMT
+11%
+Truck / other
+10%
+Riders bear the brunt
+Two-wheeler riders make up 44% of road deaths — the focus of BNCAP two-wheeler ratings and helmet enforcement.
+
+Data sources & methodology
+Figures are harmonised from the Ministry of Road Transport & Highways annual "Road Accidents in India" reports, the National Crime Records Bureau (NCRB) and the Integrated Road Accident Database (iRAD). Annual fatality totals are calendar-year; state figures use the latest published year. Cause shares are computed on fatal-crash records and may sum beyond 100% where multiple factors apply.
+
+MoRTH
+NCRB
+iRAD
+WHO Global Status Report
+CSIR-CRRI Black Spot Atlas
+Last harmonised: August 2026 · Next refresh on release of the FY2024–25 MoRTH report.
+
+Go deeper
+Explore the underlying datasets
+Download the geo-tagged National Black Spot Atlas — 5,803 high-risk locations with fatality history and recommended countermeasures — and every dataset behind this dashboard.
+
+Black Spot Atlas
+Open Repository
+BARS — Bharat Association of Road Safety Volunteers
+India’s national Road Safety knowledge repository — bringing the right people, knowledge and systems together to end preventable road deaths.
+
+Platform
+Central Repository
+Directory
+Data Dashboard
+Network
+Search
+Contribute
+Upload Resource
+Register Organisation
+Join as Volunteer
+Expert Network
+Verification
+Pillars
+Sarkaar · Government
+Bazaar · Industry
+Samaaj · Society
+State Explorer
+About
+Help & Support
+Settings
+Contact
+Privacy
+© 2026 Bharat Association of Road Safety Volunteers. All rights reserved.
+
+●
+SARKAAR · BAZAAR · SAMAAJ
+·
+Target 2030 · SDG 3.6
+Terms
+Privacy
+Accessibility
