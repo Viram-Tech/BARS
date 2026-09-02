@@ -48,7 +48,7 @@ export default function DesignSystem() {
                     ['Emerald', 'bg-accent', 'Progress & Verification', 'text-accent-foreground'], 
                     ['Paper', 'bg-background', 'Context & Canvas', 'text-foreground border border-border']
                   ].map(([name, colorClass, role, textClass]) => (
-                    <div key={name} className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+                    <div key={name} className="surface-card overflow-hidden rounded-xl">
                       <div className={`h-32 p-4 flex items-end ${colorClass} ${textClass}`}>
                         <span className="font-mono-ui text-xs font-bold uppercase tracking-widest opacity-80">{name}</span>
                       </div>
@@ -63,7 +63,7 @@ export default function DesignSystem() {
               {/* Typography */}
               <div>
                 <SectionLabel number="B">Type in two voices</SectionLabel>
-                <div className="mt-8 space-y-10 rounded-xl border border-border bg-card p-8 shadow-sm">
+                <div className="surface-card mt-8 space-y-10 rounded-xl p-8">
                   <div>
                     <p className="font-display text-5xl leading-none text-primary dark:text-foreground tracking-tight">Evidence moves us.</p>
                     <p className="mt-4 flex items-center gap-3 font-mono-ui text-xs font-bold text-muted-foreground">
@@ -89,12 +89,12 @@ export default function DesignSystem() {
               <div className="lg:col-span-2">
                 <SectionLabel number="C">Spacing & edges</SectionLabel>
                 <div className="mt-8 grid gap-6 sm:grid-cols-3">
-                  <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
+                  <div className="surface-card rounded-xl p-8">
                     <div className="h-1 w-12 bg-secondary rounded-full" />
                     <p className="mt-6 font-display text-2xl text-primary dark:text-foreground">Sharp hierarchy</p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Borders and rules do the work of decoration. Everything has its place.</p>
                   </div>
-                  <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
+                  <div className="surface-card rounded-xl p-8">
                     <div className="flex items-end gap-1.5 h-8">
                       <span className="h-3 w-3 rounded-sm bg-accent" />
                       <span className="h-5 w-3 rounded-sm bg-accent" />
@@ -103,7 +103,7 @@ export default function DesignSystem() {
                     <p className="mt-6 font-display text-2xl text-primary dark:text-foreground">Measured rhythm</p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">A quiet scale with plenty of room for dense data and real content.</p>
                   </div>
-                  <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
+                  <div className="surface-card rounded-xl p-8">
                     <div className="h-8 border-l-[3px] border-secondary pl-3 flex items-center text-sm font-bold text-secondary">Focus</div>
                     <p className="mt-6 font-display text-2xl text-primary dark:text-foreground">Human emphasis</p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Saffron and Emerald mark the moments that need a practitioner's attention.</p>
@@ -118,7 +118,7 @@ export default function DesignSystem() {
               {/* Controls */}
               <div>
                 <SectionLabel number="A">Controls</SectionLabel>
-                <div className="mt-8 space-y-8 rounded-xl border border-border bg-card p-8 shadow-sm">
+                <div className="surface-card mt-8 space-y-8 rounded-xl p-8">
                   <div>
                     <p className="mb-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Buttons</p>
                     <div className="flex flex-wrap gap-4">
@@ -149,7 +149,7 @@ export default function DesignSystem() {
               <div>
                 <SectionLabel number="B">Editorial blocks</SectionLabel>
                 <div className="mt-8 space-y-6">
-                  <div className="rounded-xl border-l-[4px] border-secondary bg-card p-6 shadow-sm border-y border-r">
+                   <div className="surface-card rounded-xl border-l-[4px] border-secondary p-6">
                     <p className="text-base font-bold text-foreground">A useful note</p>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Context belongs next to the number, not hidden behind it. Use this block to explain caveats or data provenance.</p>
                   </div>

@@ -40,7 +40,7 @@ export function Button({
       onClick={onClick}
       data-testid={testId}
       disabled={disabled}
-      className={`focus-ring inline-flex min-h-10 items-center justify-center gap-2 px-4 text-sm font-semibold transition-colors disabled:opacity-50 disabled:pointer-events-none rounded-sm ${styles[variant]} ${className}`}
+      className={`focus-ring inline-flex min-h-10 items-center justify-center gap-2 rounded-sm px-4 text-sm font-semibold shadow-sm transition-all active:scale-[.98] disabled:pointer-events-none disabled:opacity-50 ${styles[variant]} ${className}`}
     >
       {children}
     </button>
@@ -54,7 +54,7 @@ export function PageHeader({ eyebrow, title, description, children, imageSrc }: 
         <SectionLabel>{eyebrow}</SectionLabel>
         <div className="mt-6 flex flex-col justify-between gap-7 lg:flex-row lg:items-end">
           <div className="animate-rise max-w-2xl">
-            <h1 className="font-display text-5xl leading-[.95] tracking-tight text-primary dark:text-foreground sm:text-7xl">
+            <h1 className="font-display text-5xl leading-[.95] tracking-[-.035em] text-primary dark:text-foreground sm:text-7xl">
               {title}
             </h1>
             <p className="mt-6 text-[16px] leading-relaxed text-muted-foreground">

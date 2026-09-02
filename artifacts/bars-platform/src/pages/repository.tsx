@@ -9,7 +9,7 @@ function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved
   const [showRecord, setShowRecord] = useState(false);
   
   return (
-    <article data-testid={`card-resource-${resource.id}`} className="group relative flex flex-col rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-border/80">
+    <article data-testid={`card-resource-${resource.id}`} className="surface-card group relative flex min-h-[320px] flex-col rounded-lg p-6">
       <div className="flex items-start justify-between gap-4">
         <span className="inline-flex items-center rounded-full bg-secondary/10 px-2.5 py-0.5 font-mono-ui text-[10px] uppercase tracking-[.12em] text-secondary font-semibold">
           {resource.type}
@@ -18,7 +18,7 @@ function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved
           aria-label={`${saved ? 'Remove' : 'Save'} ${resource.title}`} 
           data-testid={`button-save-${resource.id}`} 
           onClick={onToggle} 
-          className={`focus-ring -mr-2 -mt-2 p-2 rounded-full transition-colors ${saved ? 'text-secondary hover:bg-secondary/10' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
+          className={`focus-ring -mr-2 -mt-2 rounded-md p-2 transition-colors ${saved ? 'text-secondary hover:bg-secondary/10' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
         >
           {saved ? <BookmarkCheck size={18} className="fill-secondary/20" /> : <Bookmark size={18} />}
         </button>
@@ -49,7 +49,7 @@ function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved
         <button 
           onClick={() => setShowRecord((current) => !current)} 
           data-testid={`button-open-resource-${resource.id}`} 
-          className="focus-ring inline-flex items-center gap-1.5 rounded-sm px-2 py-1 text-xs font-bold text-secondary hover:bg-secondary/10 hover:text-secondary transition-colors"
+          className="focus-ring inline-flex items-center gap-1.5 rounded-sm px-2 py-1 text-xs font-bold text-secondary transition-colors hover:bg-secondary/10 hover:text-secondary"
         >
           {showRecord ? 'Close record' : 'Read record'} 
           <ArrowUpRight size={14} className={`transition-transform ${showRecord ? 'rotate-180' : ''}`} />
@@ -57,7 +57,7 @@ function ResourceCard({ resource, saved, onToggle }: { resource: Resource; saved
       </div>
       
       {showRecord && (
-        <div data-testid={`text-resource-record-${resource.id}`} className="mt-4 rounded-md bg-muted p-4 text-xs leading-relaxed text-muted-foreground animate-fade">
+        <div data-testid={`text-resource-record-${resource.id}`} className="mt-4 rounded-md border border-border bg-muted/60 p-4 text-xs leading-relaxed text-muted-foreground animate-fade">
           <strong className="text-foreground block mb-1">Catalog note:</strong> 
           This record is available as a grounded starting point for practitioners. Ask BARS for related sources or implementation examples. The full text is secured in the repository.
         </div>
@@ -112,7 +112,7 @@ export default function Repository() {
         <div className="mx-auto max-w-[1240px]">
           
           {/* Search & Filters */}
-          <div className="grid gap-4 rounded-xl bg-card p-2 shadow-sm border border-border lg:grid-cols-[1fr_auto_auto]">
+          <div className="surface-card grid gap-4 rounded-xl p-2 lg:grid-cols-[1fr_auto_auto]">
             <div className="relative flex items-center">
               <Search className="absolute left-4 text-muted-foreground" size={18} />
               <label className="sr-only" htmlFor="repository-search">Search the repository</label>
@@ -189,7 +189,7 @@ export default function Repository() {
               ))}
             </div>
           ) : (
-            <div data-testid="empty-repository-results" className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-card px-6 py-24 text-center">
+             <div data-testid="empty-repository-results" className="surface-card flex flex-col items-center justify-center rounded-xl border-dashed px-6 py-24 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                 <Search size={28} className="text-muted-foreground" />
               </div>
@@ -198,7 +198,7 @@ export default function Repository() {
             </div>
           )}
           
-          <div className="mt-12 flex items-start gap-4 rounded-xl border border-accent/20 bg-accent/5 p-6 text-sm text-foreground">
+           <div className="mt-12 flex items-start gap-4 rounded-xl border border-accent/20 bg-accent/5 p-6 text-sm text-foreground">
             <ShieldCheck className="shrink-0 text-accent" size={24} />
             <div>
               <strong className="block text-accent mb-1 text-base">About the repository.</strong> 

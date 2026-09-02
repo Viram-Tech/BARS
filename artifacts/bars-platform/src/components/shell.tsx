@@ -125,7 +125,12 @@ export function Shell({
       {/* Main Content */}
       <div className={`flex-1 flex flex-col min-w-0 ${direction === 'rtl' ? 'md:pr-[280px]' : 'md:pl-[280px]'}`}>
         <header className="sticky top-0 z-20 flex h-[72px] shrink-0 items-center justify-between border-b border-border bg-background/80 px-5 backdrop-blur-md md:px-8">
-          <button aria-label="Open navigation" data-testid="button-open-menu" onClick={() => setMobileOpen(true)} className="focus-ring p-2 -ml-2 rounded-sm md:hidden hover:bg-muted"><Menu size={21} /></button>
+          <div className="flex items-center gap-2">
+            <button aria-label="Open navigation" data-testid="button-open-menu" onClick={() => setMobileOpen(true)} className="focus-ring -ml-2 rounded-sm p-2 hover:bg-muted md:hidden"><Menu size={21} /></button>
+            <Link href="/" data-testid="link-mobile-logo" className="focus-ring flex items-center md:hidden">
+              <img src={barsLogo} alt="BARS" className="h-8 w-auto object-contain" />
+            </Link>
+          </div>
           
           <div className="hidden items-center gap-4 text-xs font-medium text-muted-foreground md:flex">
             <span className="font-mono-ui text-[10px] text-secondary tracking-wider bg-secondary/10 px-2 py-1 rounded-sm">2030 / INDIA</span>

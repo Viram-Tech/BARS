@@ -45,7 +45,7 @@ export default function Dashboard() {
           <div className="grid gap-6 lg:grid-cols-[1.35fr_1fr_1fr]">
             
             {/* National Picture */}
-            <div className="rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm flex flex-col">
+            <div className="surface-card rounded-xl p-6 sm:p-8 flex flex-col">
               <SectionLabel number="A">National picture</SectionLabel>
               <div className="mt-6 flex items-end gap-4">
                 <span data-testid="text-national-fatalities" className="font-mono-ui text-5xl font-bold text-primary dark:text-foreground tracking-tight">
@@ -92,7 +92,7 @@ export default function Dashboard() {
             </div>
             
             {/* Leading Indicator */}
-            <div className="rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm flex flex-col">
+            <div className="surface-card rounded-xl p-6 sm:p-8 flex flex-col">
               <SectionLabel number="B">Leading indicator</SectionLabel>
               <div className="mt-6">
                 <span className="block font-mono-ui text-6xl font-bold text-secondary tracking-tight">63.4</span>
@@ -108,7 +108,7 @@ export default function Dashboard() {
             </div>
             
             {/* This Quarter */}
-            <div className="rounded-xl border border-border bg-primary text-primary-foreground p-6 sm:p-8 shadow-sm flex flex-col">
+            <div className="rounded-xl border border-primary bg-primary text-primary-foreground p-6 sm:p-8 shadow-sm flex flex-col">
               <SectionLabel number="C"><span className="text-primary-foreground/70">This quarter</span></SectionLabel>
               <div className="mt-6 flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-sm">
@@ -129,7 +129,7 @@ export default function Dashboard() {
           
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_.8fr]">
             {/* State Comparison */}
-            <div className="rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+            <div className="surface-card rounded-xl p-6 sm:p-8">
               <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
                 <div>
                   <SectionLabel number="03">State comparison</SectionLabel>
@@ -187,7 +187,7 @@ export default function Dashboard() {
             </div>
             
             {/* A Useful Question / Callout */}
-            <div className="rounded-xl border border-border bg-card overflow-hidden shadow-sm flex flex-col">
+            <div className="surface-card rounded-xl overflow-hidden flex flex-col">
               <div className="bg-muted p-6 sm:p-8 border-b border-border">
                 <SectionLabel number="04">A useful question</SectionLabel>
                 <h2 className="mt-5 font-display text-4xl leading-tight text-primary dark:text-foreground">
@@ -212,7 +212,7 @@ export default function Dashboard() {
           </div>
           
           {/* Coverage metrics */}
-          <div className="mt-8 rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+          <div className="surface-card mt-8 rounded-xl p-6 sm:p-8">
             <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end border-b border-border pb-6">
               <div>
                 <SectionLabel number="05">Coverage, not just outcomes</SectionLabel>

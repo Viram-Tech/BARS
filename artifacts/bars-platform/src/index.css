@@ -147,7 +147,7 @@
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; font-synthesis: none; }
   body { @apply font-sans antialiased bg-background text-foreground; }
   button, a, input, select { -webkit-tap-highlight-color: transparent; }
   video { display: block; }
@@ -166,6 +166,20 @@
   .text-balance { text-wrap: balance; }
   .institutional-rule { border-top: 1px solid hsl(var(--border)); }
   .focus-ring:focus-visible { outline: 2px solid hsl(var(--secondary)); outline-offset: 3px; }
+  .surface-card {
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    box-shadow: 0 1px 2px hsl(var(--foreground) / .04);
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .surface-card:hover {
+    border-color: hsl(var(--secondary) / .35);
+    box-shadow: 0 12px 28px hsl(var(--foreground) / .08);
+  }
+  .surface-card:focus-within {
+    border-color: hsl(var(--secondary) / .55);
+    box-shadow: 0 0 0 3px hsl(var(--secondary) / .12);
+  }
   .animate-rise { animation: rise-in .65s cubic-bezier(.22,1,.36,1) both; }
   .animate-fade { animation: fade-in .45s ease both; }
   

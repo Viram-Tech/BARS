@@ -34,7 +34,7 @@ export default function Directory() {
         <div className="mx-auto max-w-[1240px]">
           
           {/* Search & Filters */}
-          <div className="flex flex-col gap-4 rounded-xl bg-card p-2 shadow-sm border border-border lg:flex-row">
+          <div className="surface-card flex flex-col gap-4 rounded-xl p-2 lg:flex-row">
             <div className="relative flex-1 flex items-center">
               <Search className="absolute left-4 text-muted-foreground" size={18} />
               <label className="sr-only" htmlFor="directory-search">Search directory</label>
@@ -94,7 +94,7 @@ export default function Directory() {
                 <article 
                   key={record.id} 
                   data-testid={`card-directory-${record.id}`} 
-                  className="group flex flex-col justify-between rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-secondary/30"
+                  className="surface-card group flex min-h-[268px] flex-col justify-between rounded-xl p-6"
                 >
                   <div>
                     <div className="flex items-start justify-between">
@@ -137,7 +137,7 @@ export default function Directory() {
               ))}
             </div>
           ) : (
-            <div data-testid="empty-directory-results" className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-card px-6 py-24 text-center">
+            <div data-testid="empty-directory-results" className="surface-card flex flex-col items-center justify-center rounded-xl border-dashed px-6 py-24 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                 <Users className="text-muted-foreground" size={28} />
               </div>
@@ -166,7 +166,7 @@ export default function Directory() {
                 role="dialog" 
                 aria-label="Suggest a directory record" 
                 data-testid="dialog-directory-contribute" 
-                className="fixed left-1/2 top-1/2 z-50 w-[90vw] max-w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-border bg-card p-6 shadow-2xl sm:p-8 animate-rise"
+                className="surface-card fixed left-1/2 top-1/2 z-50 w-[90vw] max-w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-xl p-6 shadow-2xl sm:p-8 animate-rise"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
