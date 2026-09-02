@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, CartesianGrid } from 'recharts';
 import { states } from '@/lib/data';
 import { PageHeader, SectionLabel } from '@/components/shared';
+import dashboardImg from '@assets/generated_images/hero.jpg';
 
 // Data for charts
 const nationalTrendData = [
@@ -26,6 +27,7 @@ export default function Dashboard() {
         eyebrow="02 / National intelligence" 
         title="Read the road ahead." 
         description="A concise view of where risk is concentrated, where progress is holding, and where the next useful question begins. Updated quarterly from public and partner data."
+        imageSrc={dashboardImg}
       >
         <div className="flex items-center gap-3 rounded-full border border-border bg-card px-4 py-1.5 shadow-sm">
           <span className="relative flex h-2.5 w-2.5">
@@ -155,7 +157,7 @@ export default function Dashboard() {
                     key={item.name} 
                     onClick={() => setSelectedState(item.name)} 
                     data-testid={`button-state-${item.short}`} 
-                    className={`focus-ring group grid w-full grid-cols-[130px_1fr_60px] items-center gap-4 rounded-md p-3 text-left text-sm transition-colors hover:bg-muted/50 ${selectedState === item.name ? 'bg-muted border border-border/50 shadow-sm' : 'border border-transparent'}`}
+                     className={`focus-ring group grid w-full grid-cols-[minmax(90px,130px)_minmax(0,1fr)_52px] items-center gap-2 rounded-md p-3 text-left text-sm transition-colors hover:bg-muted/50 sm:grid-cols-[130px_1fr_60px] sm:gap-4 ${selectedState === item.name ? 'bg-muted border border-border/50 shadow-sm' : 'border border-transparent'}`}
                   >
                     <span className={`font-semibold ${selectedState === item.name ? 'text-primary dark:text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
                       {item.name}

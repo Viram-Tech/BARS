@@ -4,12 +4,13 @@ An evidence-led platform connecting India’s road-safety research, data, practi
 
 ## Run & Operate
 
+- `pnpm install --frozen-lockfile` — install the imported workspace dependencies
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- The current API slice runs without external credentials; `DATABASE_URL` is required when database-backed routes are enabled.
 
 ## Stack
 
@@ -41,6 +42,8 @@ An evidence-led platform connecting India’s road-safety research, data, practi
 - National intelligence dashboard with state comparison and coverage indicators
 - Verified stakeholder directory with organisation/expert filters and contribution prompt
 - Living design-system showcase and global Ask BARS assistant shell
+- 22-language Indic selector with persisted preference, native labels, and RTL handling
+- Media-rich visual briefing blocks with responsive imagery and field-film video playback
 
 ## User preferences
 

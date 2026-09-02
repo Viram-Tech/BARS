@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: languages
+    description: Indic language support
 paths:
   /healthz:
     get:
@@ -24,6 +26,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /languages:
+    get:
+      operationId: listIndicLanguages
+      tags: [languages]
+      summary: List the supported Indic languages
+      description: Returns the 22 constitutionally scheduled languages supported by the BARS language layer.
+      responses:
+        "200":
+          description: Supported Indic languages
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IndicLanguageList"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +48,28 @@ components:
           type: string
       required:
         - status
+    IndicLanguage:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        nativeName:
+          type: string
+        script:
+          type: string
+      required: [code, name, nativeName, script]
+    IndicLanguageList:
+      type: object
+      properties:
+        region:
+          type: string
+        count:
+          type: integer
+        languages:
+          type: array
+          items:
+            $ref: "#/components/schemas/IndicLanguage"
+      required: [region, count, languages]
 

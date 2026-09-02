@@ -1,1 +1,2 @@
 - [Artifact build compatibility](artifact-build-compatibility.md) — keep Vite artifacts runnable in both workflow-provided and standalone build environments.
+- [Imported workspace installation](imported-workspace-install.md) — repair missing pnpm executable links after an interrupted first install.

@@ -150,6 +150,7 @@
   html { scroll-behavior: smooth; }
   body { @apply font-sans antialiased bg-background text-foreground; }
   button, a, input, select { -webkit-tap-highlight-color: transparent; }
+  video { display: block; }
   ::selection { background: hsl(var(--secondary) / .35); }
 }
 
@@ -178,4 +179,8 @@
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+}
+
+@media (max-width: 640px) {
+  .bars-grain header select { max-width: 92px; }
 }

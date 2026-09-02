@@ -1,6 +1,8 @@
 import { ArrowRight, ArrowUpRight, BarChart3, BookOpen, MessageCircle, Network } from 'lucide-react';
 import { Link } from 'wouter';
 import { SectionLabel } from '@/components/shared';
+import { MediaStory } from '@/components/media-story';
+import heroImg from '@assets/generated_images/hero.jpg';
 
 export default function Home({ onAsk }: { onAsk: () => void }) {
   return (
@@ -125,6 +127,17 @@ export default function Home({ onAsk }: { onAsk: () => void }) {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-20 sm:px-10 lg:px-16 lg:py-28 bg-background">
+        <div className="mx-auto max-w-[1240px]">
+          <MediaStory
+            image={heroImg}
+            eyebrow="05 / Field perspective"
+            title="See the street behind the statistic."
+            description="Road safety becomes practical when data, design, and lived experience are viewed together. Explore a visual briefing built for the people who make journeys safer."
+          />
         </div>
       </section>
 

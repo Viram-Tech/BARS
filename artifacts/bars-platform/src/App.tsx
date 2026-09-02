@@ -13,6 +13,7 @@ import Repository from '@/pages/repository';
 import Dashboard from '@/pages/dashboard';
 import Directory from '@/pages/directory';
 import DesignSystem from '@/pages/design-system';
+import { LanguageProvider } from '@/lib/language-context';
 
 const queryClient = new QueryClient();
 
@@ -53,9 +54,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Router onOpenAssistant={() => setAssistantOpen(true)} />
-        <Assistant open={assistantOpen} onClose={() => setAssistantOpen(false)} />
-        <Toaster />
+        <LanguageProvider>
+          <Router onOpenAssistant={() => setAssistantOpen(true)} />
+          <Assistant open={assistantOpen} onClose={() => setAssistantOpen(false)} />
+          <Toaster />
+        </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

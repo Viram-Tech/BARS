@@ -97,6 +97,7 @@ export default function Repository() {
         eyebrow="01 / Knowledge repository" 
         title="Evidence you can use." 
         description="A working library of Indian road-safety research, policy, field practice, and tools. Every record is sourced, dated, and ready to build on."
+        imageSrc={repositoryImg}
       >
         <Button variant="outline" onClick={downloadCatalogue} testId="button-repository-download" className="bg-background">
           Download catalogue
