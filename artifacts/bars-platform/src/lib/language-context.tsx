@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { indicLanguages, type LanguageCode } from '@/lib/languages';
+import { getFooterCopy, getHomeCopy, type FooterCopy, type HomeCopy } from '@/lib/i18n/page-copy';
 
 type ShellCopy = {
   navigate: string;
@@ -61,6 +62,8 @@ type LanguageContextValue = {
   language: LanguageCode;
   setLanguage: (language: LanguageCode) => void;
   copy: ShellCopy;
+  home: HomeCopy;
+  footer: FooterCopy;
   languageName: string;
   direction: 'ltr' | 'rtl';
 };
@@ -84,6 +87,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     language,
     setLanguage,
     copy: shellCopy[language] ?? englishCopy,
+    home: getHomeCopy(language),
+    footer: getFooterCopy(language),
     languageName: indicLanguages.find((item) => item.code === language)?.nativeName ?? 'English',
     direction: language === 'ur' || language === 'sd' || language === 'ks' ? 'rtl' as const : 'ltr' as const,
   }), [language]);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Building2, CheckCircle2, MapPin, Search, UserRound, Users, X, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { Building2, CheckCircle2, MapPin, Search, UserRound, Users, X, ArrowUpRight, ShieldCheck } from '@/components/hugeicons';
 import { directoryRecords } from '@/lib/data';
 import { PageHeader, SectionLabel, Button } from '@/components/shared';
 import { mediaLibrary } from '@/lib/media-library';
@@ -22,7 +22,7 @@ export default function Directory() {
       <PageHeader 
         eyebrow="03 / Verified directory" 
         title="The people doing the work." 
-        description="A trusted starting point for collaboration across Sarkaar, Bazaar, and Samaaj. Profiles are reviewed for identity, role, and active road-safety work."
+        description="A trusted starting point for collaboration across Sarkaar, Bazaar, and Samaaj — including BARS leadership, Declaration partners, state RSAs, and operators. Profiles are reviewed for identity, role, and active road-safety work."
         imageSrc={mediaLibrary.community.src}
       >
         <Button variant="amber" onClick={() => setContributeOpen(true)} testId="button-directory-suggest" className="shadow-sm hover:shadow-md">
@@ -30,8 +30,8 @@ export default function Directory() {
         </Button>
       </PageHeader>
       
-      <section className="flex-1 px-5 py-8 sm:px-10 lg:px-16 lg:py-12">
-        <div className="mx-auto max-w-[1240px]">
+      <section className="flex-1 py-8 lg:py-12">
+        <div className="bars-page">
           
           {/* Search & Filters */}
           <div className="surface-card flex flex-col gap-4 rounded-xl p-2 lg:flex-row">
@@ -98,7 +98,7 @@ export default function Directory() {
                 >
                   <div>
                     <div className="flex items-start justify-between">
-                      <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-mono-ui text-[10px] uppercase tracking-[.12em] font-bold ${record.kind === 'Organisation' ? 'bg-primary/10 text-primary dark:text-foreground' : 'bg-muted text-muted-foreground'}`}>
+                      <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-mono-ui text-[10px] uppercase tracking-[.12em] font-bold ${record.kind === 'Organisation' ? 'bg-primary/10 text-foreground' : 'bg-muted text-muted-foreground'}`}>
                         {record.kind === 'Organisation' ? <Building2 size={12} /> : <UserRound size={12} />}
                         {record.kind}
                       </span>
@@ -110,7 +110,7 @@ export default function Directory() {
                     <div className="mt-8 flex items-start gap-4">
                       <BrandMark name={record.name} initials={record.initials} size="lg" />
                       <div className="min-w-0 flex-1">
-                        <h2 className="break-words text-lg font-bold leading-tight text-primary dark:text-foreground group-hover:text-secondary transition-colors">
+                        <h2 className="break-words text-lg font-bold leading-tight text-foreground group-hover:text-secondary transition-colors">
                           {record.name}
                         </h2>
                         <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
@@ -141,15 +141,15 @@ export default function Directory() {
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                 <Users className="text-muted-foreground" size={28} />
               </div>
-              <p className="mt-6 font-display text-3xl text-primary dark:text-foreground">No records found.</p>
+              <p className="mt-6 font-display text-3xl text-foreground">No records found.</p>
               <p className="mt-3 text-sm text-muted-foreground">Try adjusting your search or filters.</p>
             </div>
           )}
           
-          <div className="mt-12 flex flex-col justify-between gap-6 rounded-xl border border-border bg-primary p-6 sm:flex-row sm:items-center sm:p-8 shadow-md">
+          <div className="mt-12 flex flex-col justify-between gap-6 rounded-xl border border-border bg-card p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
-              <p className="font-display text-2xl text-primary-foreground">Are you part of the road-safety ecosystem?</p>
-              <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70 max-w-md">
+              <p className="font-display text-2xl text-foreground">Are you part of the road-safety ecosystem?</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground max-w-md">
                 Help keep this directory useful, current, and representative of the actual work happening on the ground.
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function Directory() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <SectionLabel number="BARS">Contribute to the directory</SectionLabel>
-                    <h2 className="mt-4 font-display text-3xl text-primary dark:text-foreground">Keep the map current.</h2>
+                    <h2 className="mt-4 font-display text-3xl text-foreground">Keep the map current.</h2>
                   </div>
                   <button 
                     onClick={() => setContributeOpen(false)} 

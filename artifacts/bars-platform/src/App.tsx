@@ -8,6 +8,7 @@ import NotFound from '@/pages/not-found';
 
 import { Shell } from '@/components/shell';
 import { Assistant } from '@/components/assistant';
+import { AssistantFab } from '@/components/assistant-fab';
 import Home from '@/pages/home';
 import Repository from '@/pages/repository';
 import Dashboard from '@/pages/dashboard';
@@ -19,10 +20,10 @@ const queryClient = new QueryClient();
 
 function Router({ onOpenAssistant }: { onOpenAssistant: () => void }) {
   const [location] = useLocation();
-  
+
   return (
     <ErrorBoundary resetKey={location}>
-      <Shell onOpenAssistant={onOpenAssistant}>
+      <Shell>
         <Switch>
           <Route path="/" component={() => <Home onAsk={onOpenAssistant} />} />
           <Route path="/repository" component={Repository} />
@@ -56,6 +57,7 @@ function App() {
       <TooltipProvider>
         <LanguageProvider>
           <Router onOpenAssistant={() => setAssistantOpen(true)} />
+          <AssistantFab onClick={() => setAssistantOpen(true)} hidden={assistantOpen} />
           <Assistant open={assistantOpen} onClose={() => setAssistantOpen(false)} />
           <Toaster />
         </LanguageProvider>

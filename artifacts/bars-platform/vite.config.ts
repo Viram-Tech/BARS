@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
-const rawPort = process.env.PORT ?? '22798';
+const rawPort = process.env.PORT ?? '5173';
 
 const port = Number(rawPort);
 
@@ -44,6 +44,7 @@ export default defineConfig({
         '..',
         'attached_assets',
       ),
+      '@sources': path.resolve(import.meta.dirname, '..', '..', 'Sources'),
     },
     dedupe: ['react', 'react-dom'],
   },
@@ -54,16 +55,22 @@ export default defineConfig({
   },
   server: {
     port,
-    strictPort: true,
-    host: '0.0.0.0',
+    strictPort: false,
+    host: process.env.HOST ?? 'localhost',
     allowedHosts: true,
     fs: {
       strict: true,
     },
+    proxy: {
+      '/api': {
+        target: process.env.API_URL ?? 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
   },
   preview: {
     port,
-    host: '0.0.0.0',
+    host: process.env.HOST ?? 'localhost',
     allowedHosts: true,
   },
 });

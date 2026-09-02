@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Bookmark, CheckCircle2, Download } from 'lucide-react';
+import { ArrowRight, Bookmark, CheckCircle2, Download } from '@/components/hugeicons';
 import { PageHeader, SectionLabel, Button } from '@/components/shared';
 
 export default function DesignSystem() {

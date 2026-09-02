@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from 'react';
-import { Check, MessageCircle, Send, ShieldCheck, X, ArrowUpRight, ArrowRight } from 'lucide-react';
+import { Check, MessageCircle, Send, ShieldCheck, X, ArrowUpRight, ArrowRight } from '@/components/hugeicons';
 import { Link } from 'wouter';
 
 export function Assistant({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -33,22 +33,22 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
       <aside 
         role="dialog" 
         aria-label="Ask BARS assistant" 
-        className="fixed bottom-0 right-0 z-50 flex h-[min(720px,100dvh)] w-full flex-col border-l border-border bg-card shadow-2xl sm:bottom-6 sm:right-6 sm:h-[620px] sm:w-[440px] sm:rounded-lg overflow-hidden animate-rise"
+        className="fixed bottom-0 right-0 z-50 flex h-[min(720px,100dvh)] w-full flex-col border-l border-border bg-card shadow-2xl sm:bottom-6 sm:right-6 sm:h-[620px] sm:w-[440px] sm:rounded-xl overflow-hidden animate-rise"
       >
-        <div className="flex items-start justify-between border-b border-border bg-primary p-6 text-primary-foreground">
+        <div className="flex items-start justify-between border-b border-border bg-card p-6">
           <div>
             <div className="flex items-center gap-2">
               <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-secondary text-secondary-foreground">
                 <MessageCircle size={15} />
               </span>
-              <span className="font-mono-ui text-xs tracking-[.12em] text-primary-foreground/80">ASK BARS</span>
+              <span className="font-mono-ui text-xs tracking-[.12em] text-muted-foreground">ASK BARS</span>
             </div>
-            <h2 className="mt-5 font-display text-3xl">A grounded starting point.</h2>
+            <h2 className="mt-5 font-display text-3xl text-foreground">A grounded starting point.</h2>
           </div>
-          <button 
-            onClick={onClose} 
-            data-testid="button-close-assistant" 
-            className="focus-ring p-1 rounded-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+          <button
+            onClick={onClose}
+            data-testid="button-close-assistant"
+            className="focus-ring p-1 rounded-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           >
             <X size={19} />
           </button>
@@ -123,7 +123,7 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
               type="submit" 
               disabled={!question.trim()} 
               data-testid="button-submit-assistant" 
-              className="mr-1.5 flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-30 disabled:hover:bg-primary"
+              className="mr-1.5 flex h-9 w-9 items-center justify-center rounded-sm bg-secondary text-secondary-foreground transition-colors hover:bg-secondary/90 disabled:opacity-30 disabled:hover:bg-secondary"
             >
               <Send size={15} className={question.trim() ? "translate-x-[-1px] translate-y-[1px]" : ""} />
             </button>

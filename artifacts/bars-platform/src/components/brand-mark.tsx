@@ -14,7 +14,7 @@ export function BrandMark({ name, initials, size = 'md' }: BrandMarkProps) {
   const textClass = size === 'lg' ? 'text-base' : size === 'sm' ? 'text-[10px]' : 'text-xs';
 
   return (
-    <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-white shadow-sm ${sizeClass}`}>
+    <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card shadow-sm ${sizeClass}`}>
       {brand && !imageFailed ? (
         <img
           src={brand.imageUrl}
