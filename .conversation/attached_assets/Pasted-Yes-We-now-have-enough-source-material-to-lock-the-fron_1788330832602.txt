@@ -1,0 +1,2873 @@
+Yes. We now have enough source material to lock the **frontend-only BARS rebuild brief**. The supplied material confirms that the current V2 concept spans the homepage, repository, directory, dashboard, smart network, contribution, verification, saved/notifications/settings, and a 2030 road-safety mission built around **Sarkaar · Bazaar · Samaaj**.   
+
+Below is the **master prompt I would give to Cursor / Replit / Lovable / another coding agent**. It is intentionally strict: the agent should behave like a senior product designer + senior frontend engineer, not like a generic landing-page generator.
+
+---
+
+# BARS — FRONTEND REVAMP MASTER BUILD PROMPT
+
+## ROLE
+
+You are the lead product designer, design-system architect, UX engineer, motion designer, accessibility specialist, and senior frontend engineer responsible for completely rebuilding the public-facing and platform-facing frontend of:
+
+# BARS
+
+## Bharat Association of Road Safety Volunteers
+
+You are NOT designing a generic NGO website.
+
+You are NOT copying the existing BARS website.
+
+You are NOT building an AI-looking SaaS dashboard.
+
+You are creating a category-defining digital experience for an Indian national road-safety institution and knowledge platform.
+
+The final result must feel so polished, intentional, useful, and visually distinctive that a visitor immediately thinks:
+
+> “This is one of the best institutional websites I have ever seen.”
+
+The experience must work beautifully on:
+
+* mobile phones
+* tablets
+* laptops
+* desktop monitors
+* ultrawide screens
+* high-density displays
+
+It must support:
+
+* light theme
+* dark theme
+* system theme preference
+* reduced-motion preference
+* keyboard navigation
+* accessible contrast
+* touch interaction
+* responsive typography
+* responsive navigation
+* responsive data visualisations
+
+The frontend must be architected so a separate backend team can connect real APIs later without requiring a visual rewrite.
+
+---
+
+# 01 — SOURCE OF TRUTH
+
+The existing BARS V2 materials supplied with this prompt are the functional/content reference.
+
+They establish the core BARS product as:
+
+* National Road Safety Knowledge Repository
+* Searchable knowledge platform
+* Verified repository
+* National road-safety data dashboard
+* Stakeholder directory
+* Smart network
+* Organisation profiles
+* Expert network
+* Contribution/upload workflows
+* Verification workflow
+* New Delhi Declaration
+* Sarkaar · Bazaar · Samaaj ecosystem
+* 2030 road-safety target
+* Saved resources
+* Notifications
+* User account/settings
+* Contextual platform assistance
+* AI-assisted network matching
+* AI assistant experience
+
+The supplied homepage describes the platform as a verified home for research, data, best practices and people across Sarkaar, Bazaar and Samaaj. 
+
+The repository is positioned as a national searchable knowledge base containing research reports, datasets, policy briefs and best-practice guides. 
+
+The directory is positioned as a verified network of government, industry and civil-society stakeholders. 
+
+Use all supplied content as functional inspiration and information architecture reference.
+
+Do NOT blindly preserve weak wording, bad hierarchy, awkward UI, placeholder data, or visual decisions from the existing prototype.
+
+---
+
+# 02 — CORE PRODUCT POSITIONING
+
+The new BARS frontend should communicate:
+
+> BARS is a national road-safety knowledge and collaboration platform connecting evidence, data, people and institutions working to reduce preventable road deaths in India.
+
+The experience should combine:
+
+* institutional authority
+* research credibility
+* human impact
+* data clarity
+* discoverability
+* collaboration
+* modern product usability
+
+The website should sit visually somewhere between:
+
+* a world-class research institution
+* a modern national data publication
+* a premium digital atlas
+* a highly usable knowledge platform
+* a sophisticated civic-tech product
+
+Do NOT make it resemble:
+
+* a normal NGO website
+* a government portal
+* a corporate CSR website
+* a startup landing page
+* a generic dashboard template
+* an “AI-generated” website
+
+---
+
+# 03 — DESIGN NORTH STAR
+
+The design language should be:
+
+## Editorial + Institutional + Human + Data-driven + Indian + Modern
+
+Visual references in spirit:
+
+* serious research publications
+* national data portals
+* premium institutional websites
+* modern editorial products
+* digital maps/atlases
+* world-class information design
+
+Do not copy another organisation's website.
+
+Take inspiration from principles:
+
+* information hierarchy
+* evidence presentation
+* editorial composition
+* visual restraint
+* data storytelling
+* strong typography
+* excellent photography
+* clean interaction design
+
+---
+
+# 04 — ABSOLUTELY AVOID “AI SLOP”
+
+Do NOT use:
+
+* purple/blue AI gradients everywhere
+* glassmorphism everywhere
+* giant glowing blobs
+* 3D floating spheres
+* abstract AI brains
+* excessive gradient text
+* excessive pill-shaped components
+* every element inside a rounded card
+* giant rounded SaaS sections
+* random decorative sparkles
+* cursor-following gimmicks
+* excessive parallax
+* fake holographic effects
+* generic robot illustrations
+* generic stock people smiling at camera
+* excessive shadows
+* unnecessary floating UI
+* visual noise
+* excessive animations
+
+Do NOT let the site look like it was generated from a generic AI website template.
+
+The design should feel handcrafted by an exceptional human design team.
+
+---
+
+# 05 — BRAND CHARACTER
+
+BARS should feel:
+
+* trustworthy
+* serious
+* intelligent
+* credible
+* optimistic
+* human
+* national
+* evidence-led
+* progressive
+* inclusive
+* calm
+* highly competent
+
+It should NOT feel:
+
+* bureaucratic
+* cold
+* outdated
+* overly corporate
+* playful
+* gimmicky
+* futuristic for the sake of being futuristic
+
+---
+
+# 06 — COLOR SYSTEM
+
+Create a professional BARS design token system.
+
+Base direction:
+
+### Deep institutional navy
+
+Approximate:
+#0B1930
+
+### Safety amber
+
+Approximate:
+#F2A51A
+
+### Warm off-white
+
+Approximate:
+#F7F6F1
+
+### Near-black
+
+Approximate:
+#171A1D
+
+### Muted institutional green
+
+Approximate:
+#477A62
+
+Use additional semantic tokens for:
+
+* success
+* warning
+* danger
+* information
+* muted text
+* border
+* elevated surfaces
+
+Do NOT overuse accent colours.
+
+Primary UI should remain restrained.
+
+Accent colours should communicate meaning, not decoration.
+
+Sarkaar / Bazaar / Samaaj may have subtly differentiated identities, but they must still clearly belong to one BARS visual system.
+
+---
+
+# 07 — THEMING
+
+The application must fully support:
+
+### Light
+
+Warm, premium, editorial, high readability.
+
+### Dark
+
+Deep navy / charcoal surfaces, sophisticated contrast, no neon aesthetic.
+
+### System
+
+Follow OS preference.
+
+Theme switching must be smooth but subtle.
+
+Never simply invert colours.
+
+Charts, maps, tables, icons, source badges, overlays, forms and assistant UI must all have intentional dark-mode states.
+
+Persist the user's theme preference.
+
+---
+
+# 08 — TYPOGRAPHY
+
+Use a strong modern sans-serif system.
+
+Prioritize:
+
+* excellent readability
+* Indian-language compatibility
+* tabular numerals for statistics
+* strong display hierarchy
+* compact metadata
+* editorial rhythm
+
+Recommended direction:
+
+* display: modern grotesk / tight editorial sans
+* body: highly readable neutral sans
+* data: tabular numerals
+
+The exact font may be chosen by the implementation environment, but typography must be treated as a major part of the identity.
+
+Do not default to generic browser typography.
+
+---
+
+# 09 — GRID
+
+Use a disciplined responsive grid.
+
+Desktop:
+
+* broad max-width container
+* generous margins
+* asymmetric editorial composition
+* occasional full-bleed media
+
+Tablet:
+
+* 8-column logic
+
+Mobile:
+
+* 4-column logic
+
+Maintain consistent:
+
+* spacing scale
+* alignment
+* gutters
+* section rhythm
+
+Use fluid spacing where appropriate.
+
+Do not design desktop first and “shrink it” for mobile.
+
+Design mobile intentionally.
+
+---
+
+# 10 — CORE VISUAL MOTIF
+
+Develop a subtle BARS visual language around:
+
+* roads
+* routes
+* connections
+* maps
+* coordinates
+* data lines
+* lane markings
+* evidence trails
+* document metadata
+* geographic grids
+
+A visual line can conceptually connect:
+
+road → data → evidence → people → action
+
+Do not literally draw roads everywhere.
+
+Use the motif subtly across:
+
+* dividers
+* timelines
+* maps
+* charts
+* navigation
+* loading states
+* section transitions
+
+---
+
+# 11 — INFORMATION ARCHITECTURE
+
+Build the frontend around these primary experiences:
+
+## Public / Institutional
+
+* Home
+* Why BARS
+* About
+* Mission
+* Leadership
+* Governance
+* Impact
+* New Delhi Declaration
+* Contact
+
+## Platform
+
+* Repository
+* Resource detail
+* Search
+* Dashboard
+* State Explorer
+* Directory
+* Organisation profile
+* Network
+* Expert profile
+* Saved resources
+* Notifications
+* Settings
+* Contribution
+* Verification
+
+## Participation
+
+* Register
+* Register organisation
+* Join as volunteer
+* Join expert network
+* Upload resource
+* Verification process
+
+## Intelligence
+
+* BARS Assistant
+* Smart network matching
+* Evidence/citation layer
+* Contextual discovery
+
+---
+
+# 12 — PRIMARY NAVIGATION
+
+Create a premium responsive navigation.
+
+Suggested desktop structure:
+
+BARS logo
+
+Knowledge
+Data
+Network
+Impact
+About
+
+Then right side:
+
+Search
+Ask BARS
+Contribute
+Join
+
+Do not overload the header.
+
+Potential secondary navigation should appear on relevant product pages.
+
+On mobile:
+
+* compact logo
+* search
+* assistant
+* menu
+
+Use a polished full-screen or large bottom-sheet/mobile menu.
+
+---
+
+# 13 — HOMEPAGE
+
+Build a completely new homepage.
+
+Do NOT reproduce the current homepage layout verbatim.
+
+The homepage should tell one coherent story.
+
+### Section 01 — Hero
+
+Primary message:
+
+# Making India's roads safer through knowledge, evidence and collaboration.
+
+Supporting message:
+
+BARS connects Sarkaar, Bazaar and Samaaj to make road-safety knowledge discoverable, credible and actionable.
+
+Primary CTA:
+Explore Knowledge
+
+Secondary CTA:
+Explore the Data
+
+Optional contextual CTA:
+Ask BARS
+
+Hero imagery:
+
+* authentic Indian road environment
+* road infrastructure
+* human context
+* high-quality documentary/editorial photography
+
+No generic stock photography.
+
+The hero should feel visually unforgettable without becoming theatrical.
+
+---
+
+# 14 — HOMEPAGE DATA MOMENT
+
+Immediately establish the national scale of the problem.
+
+Display key metrics in a highly editorial composition:
+
+* crashes every day
+* lives lost every day
+* annual fatalities
+* economic loss
+
+Every metric should visually support:
+
+* number
+* label
+* time period
+* source
+* optional methodology
+
+Use a tiny provenance pattern such as:
+
+MoRTH · 2024
+
+Do not make statistics look like unsupported marketing numbers.
+
+---
+
+# 15 — 2030 TARGET
+
+Create a dramatic but restrained section around:
+
+## Halving road deaths by 2030
+
+Show:
+
+Baseline
+Current state
+Target
+Progress
+Remaining gap
+Deadline
+
+Prefer a trajectory / timeline / target-line visual over a generic progress bar.
+
+Design the section like a serious national indicator.
+
+Include:
+View methodology
+
+---
+
+# 16 — SARKAAR · BAZAAR · SAMAAJ
+
+This should become a signature visual section.
+
+Heading:
+
+# Three pillars. One mission.
+
+Show:
+
+### Sarkaar
+
+Government
+Policy
+Enforcement
+Infrastructure
+
+### Bazaar
+
+Industry
+OEMs
+CSR
+Technology
+Fleet safety
+
+### Samaaj
+
+NGOs
+Volunteers
+Experts
+Academia
+Communities
+
+BARS is the connective centre.
+
+Make this a visual ecosystem, not three repetitive cards.
+
+Could use:
+
+* three-way relationship diagram
+* editorial split layout
+* geographic/network line system
+* interconnected columns
+
+Must be elegant and extremely readable.
+
+---
+
+# 17 — KNOWLEDGE REPOSITORY
+
+Homepage section:
+
+# The knowledge behind safer roads
+
+Provide a powerful search field.
+
+Suggested placeholder:
+
+Search research, data, policies, toolkits and best practices…
+
+Show a few featured resources.
+
+The supplied repository already identifies categories such as:
+
+* Research
+* Policy
+* Data
+* Guide
+
+and focus areas such as:
+
+* Accident Prevention
+* Black Spot Identification
+* Driver Training
+* Emergency Response
+* Helmet / Seatbelt Campaigns
+* School & Youth Programmes
+* Traffic Law Enforcement
+* Vehicle Safety. 
+
+Use those as the starting taxonomy.
+
+---
+
+# 18 — FEATURED RESOURCE CARDS
+
+Do not make generic three-column SaaS cards.
+
+Create a sophisticated editorial resource component.
+
+Every resource should be able to display:
+
+* category
+* pillar
+* verification
+* title
+* summary
+* organisation
+* year
+* geography
+* resource type
+* views/downloads/citations where appropriate
+* save
+* read/open
+
+Examples from the supplied material include:
+
+* Zero Fatality Corridor
+* BNCAP Two-Wheeler Safety Ratings
+* National Black Spot Atlas
+* Helmet Behaviour Study
+* Golden Hour Trauma Guide
+* Safe School Zone Toolkit
+* Drunk-Driving Deterrence Policy Brief
+* Commercial Driver Training Curriculum. 
+
+Do not fabricate new factual claims.
+
+Use supplied material for demos/mock data until APIs are connected.
+
+---
+
+# 19 — DATA DASHBOARD
+
+Create a premium national road-safety intelligence experience.
+
+Headline:
+
+# India Road Safety
+
+## The national picture
+
+Core sections:
+
+### National indicators
+
+* annual fatalities
+* fatalities/day
+* crashes/day
+* economic loss
+* target progress
+
+### 2030 trajectory
+
+### Fatality trend
+
+### State map
+
+### State rankings
+
+### Contributing factors
+
+### Vulnerable road users
+
+### Sources and methodology
+
+### Underlying datasets
+
+The supplied dashboard concept uses MoRTH, NCRB and iRAD as core data references. Treat source attribution as a fundamental part of the UI. 
+
+---
+
+# 20 — DASHBOARD DESIGN PRINCIPLE
+
+Do NOT make the dashboard look like:
+
+* Power BI
+* Tableau
+* generic SaaS analytics
+
+Make it feel like:
+
+* national atlas
+* statistical publication
+* modern research environment
+
+Use:
+
+* editorial whitespace
+* strong typographic numbers
+* maps
+* restrained charts
+* strong annotation
+* source metadata
+* contextual narratives
+
+Charts must explain something.
+
+Do not include visualisations merely because charts look impressive.
+
+---
+
+# 21 — STATE EXPLORER
+
+Build a reusable state analytics experience.
+
+A state page should answer:
+
+* How many fatalities?
+* Trend?
+* Fatality rate?
+* Road-user mix?
+* Contributing factors?
+* Comparison with India?
+* Relevant resources?
+* Organisations working in that state?
+* Black spots / high-risk locations if API supports them?
+
+Do NOT conflate:
+
+* absolute burden
+* rate
+* risk
+* trend
+
+These are different concepts.
+
+---
+
+# 22 — REPOSITORY PAGE
+
+Headline:
+
+# The National Road Safety Knowledge Base
+
+Supporting message:
+
+One verified, searchable home for research reports, datasets, policy briefs and best-practice guides.
+
+The supplied repository structure includes:
+
+* category filters
+* focus-area filters
+* geography
+* format
+* verification
+* sort modes. 
+
+Build these as excellent UX rather than plain HTML filters.
+
+Desktop:
+
+* sticky filter rail or refined filter panel
+* rich results
+* search
+* sorting
+* pagination/infinite loading where appropriate
+
+Mobile:
+
+* filter button
+* bottom sheet
+* clear active-filter summary
+* easy reset
+
+---
+
+# 23 — SEARCH EXPERIENCE
+
+Create a first-class search system.
+
+Search across:
+
+* resources
+* datasets
+* organisations
+* experts
+* initiatives
+* declarations
+* states
+* topics
+
+Suggested result groups:
+
+Best matches
+Resources
+Organisations
+Experts
+Data
+Initiatives
+
+Use query suggestions and recent searches.
+
+Search results should be clean and editorial.
+
+Never make it feel like a generic admin search table.
+
+---
+
+# 24 — RESOURCE DETAIL PAGE
+
+Every resource should have a premium reading/detail experience.
+
+Include:
+
+* breadcrumb
+* category
+* pillar
+* verification status
+* title
+* summary
+* organisation
+* year
+* geography
+* resource metadata
+* hero/thumbnail if relevant
+* primary action
+* save
+* citation
+* related resources
+* related organisations
+* related topics
+* source information
+* methodology
+* impact/evidence when available
+
+Important:
+Create an “Evidence / Source” area.
+
+This is central to BARS credibility.
+
+---
+
+# 25 — SOURCE SYSTEM
+
+Build reusable components:
+
+`SourceBadge`
+
+`Citation`
+
+`SourceCard`
+
+`MethodologyPanel`
+
+`VerificationBadge`
+
+Examples:
+
+MoRTH · 2024
+
+WHO · 2025
+
+BARS analysis · Updated Aug 2026
+
+The UI should make provenance feel natural rather than bureaucratic.
+
+---
+
+# 26 — DIRECTORY
+
+Headline:
+
+# India's Road Safety Stakeholders
+
+Supporting:
+
+247 verified organisations across government, industry and civil society.
+
+The supplied directory includes:
+
+* pillar
+* organisation type
+* state
+* focus area
+* verification
+* sorting
+* resource count
+* reach
+* geographic reach. 
+
+Build a polished discovery experience.
+
+Filters must feel fast.
+
+Card/list switching may be useful.
+
+Mobile should prioritize:
+
+* identity
+* organisation name
+* location
+* pillar
+* key capability
+* CTA
+
+Do not overcrowd cards.
+
+---
+
+# 27 — ORGANISATION PROFILE
+
+Create a premium profile page.
+
+Include:
+
+Organisation identity
+Pillar
+Verification
+Description
+Location
+Focus areas
+Programmes
+Resources
+Reach
+Geographies
+Related organisations
+People
+Contact / collaboration CTA
+
+Allow the profile to visually communicate credibility.
+
+Do not create a social-media profile clone.
+
+It should feel institutional.
+
+---
+
+# 28 — SMART NETWORK
+
+The supplied Network concept presents recommendations based on:
+
+* tag overlap
+* semantic similarity
+* network behaviour.
+
+Design this as a **Smart Network experience**, not an AI demo.
+
+Core experience:
+
+# Find the right partners, faster
+
+Recommendation card:
+
+Organisation
+Pillar
+Location
+Match strength
+Aligned on
+Why the match makes sense
+Connect
+View profile
+
+Examples in the supplied material include SaveLIFE-related recommendations for:
+
+* Indian Road Safety Campaign
+* CSIR — Central Road Research Institute
+* MoRTH Road Safety Cell
+* NHAI
+* Apollo Trauma & Emergency Network
+* Honda Safety Riding Institute
+* TRAX Road Safety Foundation
+
+Use supplied examples as mock/demo data only.
+
+---
+
+# 29 — SMART MATCH EXPLANATION
+
+Never simply show:
+
+94% match
+
+without explanation.
+
+Show:
+
+94% match
+
+Aligned on:
+
+* Road Safety Education
+* School & Youth Programmes
+* Helmet / Seatbelt Campaigns
+
+Then:
+
+Why this match?
+
+Short human-readable explanation.
+
+This makes the recommendation understandable rather than “AI magic”.
+
+---
+
+# 30 — EXPERT NETWORK
+
+Create:
+
+# Reach the people behind the research
+
+Expert cards can include:
+
+* name
+* title
+* organisation
+* expertise
+* experience
+* pillar
+* location
+* match strength
+* request introduction
+
+Do not make it look like LinkedIn.
+
+Keep it clean, professional and research-oriented.
+
+---
+
+# 31 — CONTRIBUTION FLOW
+
+Build a beautiful upload/contribution experience.
+
+Headline:
+
+# Put your road-safety knowledge to work.
+
+Steps:
+
+1. Contribute
+2. Verify
+3. Publish
+4. Connect
+
+The supplied platform describes a workflow where organisations upload research/data/best practices, submissions are reviewed, approved knowledge becomes searchable and citable, and complementary organisations can connect. 
+
+Frontend should make that flow feel simple.
+
+Use:
+
+* progress indicator
+* sectioned forms
+* drag-and-drop upload
+* metadata inputs
+* autosave
+* validation
+* upload states
+* review state
+* success state
+
+---
+
+# 32 — VERIFICATION EXPERIENCE
+
+Create a separate explanatory experience:
+
+# How BARS verification works
+
+Explain:
+
+* submission
+* review
+* verification
+* publication
+* correction/update pathway
+
+Do not exaggerate capabilities.
+
+Do not market “AI checks” as magic.
+
+The trust model should be:
+
+* transparent
+* understandable
+* human-readable
+
+---
+
+# 33 — NEW DELHI DECLARATION
+
+Create a premium document-reading page.
+
+It should feel like an important national declaration.
+
+Use:
+
+* strong title
+* date / context
+* sticky section navigation
+* reading progress
+* section anchors
+* typography suited to long-form reading
+* share
+* print
+* download
+* sign / participate CTA where applicable
+
+Potential section navigation:
+
+* Governance
+* Vehicles
+* Road Users
+* Infrastructure
+* Emergency Response
+* Commitments
+
+Make it feel like a digital policy document rather than a normal web page.
+
+---
+
+# 34 — IMPACT
+
+Build an evidence-led impact area.
+
+Use:
+
+* intervention
+* place
+* before
+* after
+* measured outcome
+* source
+* responsible organisation
+* methodology
+
+Example supplied content:
+Zero Fatality Corridor evaluation and its reported outcomes.
+
+Do not present case studies as marketing fluff.
+
+Present them as evidence.
+
+---
+
+# 35 — PARTICIPATION
+
+Create three high-quality participation paths:
+
+## For Organisations
+
+Register, showcase programmes, contribute knowledge.
+
+## For Volunteers
+
+Field surveys, awareness campaigns, local participation.
+
+## For Experts
+
+Review, mentor, contribute expertise.
+
+The supplied homepage explicitly separates these three audiences. 
+
+Each should feel purpose-built.
+
+---
+
+# 36 — BARS ASSISTANT
+
+Create a global assistant called:
+
+# Ask BARS
+
+Do NOT make it the centre of the site.
+
+It should be a secondary intelligence layer.
+
+Primary global entry:
+`Ask BARS`
+
+Could appear in:
+
+* header
+* search
+* repository
+* dashboard
+* resource detail
+* state explorer
+* organisation profile
+
+---
+
+# 37 — ASSISTANT UI
+
+Default launcher:
+
+`✦ Ask BARS`
+
+On desktop:
+
+* elegant side drawer or floating panel
+
+On mobile:
+
+* full-height modal/sheet experience
+
+Avoid:
+
+* glowing orb
+* robot
+* “AI brain”
+* futuristic chatbot branding
+
+---
+
+# 38 — ASSISTANT EMPTY STATE
+
+Use:
+
+Ask BARS about India's road-safety evidence.
+
+Suggested questions:
+
+* What are the latest road fatality trends?
+* Find research on pedestrian safety.
+* Compare Maharashtra with India.
+* What does the New Delhi Declaration say?
+* Find black-spot resources.
+* Explain this dataset.
+
+Contextual prompts should change by page.
+
+---
+
+# 39 — ASSISTANT ANSWERS
+
+Assistant responses must be structured.
+
+Example:
+
+Question:
+“What states have the highest road deaths?”
+
+Answer:
+
+Short direct answer.
+
+Then:
+ranked information
+
+Then:
+Sources
+
+Then:
+Related actions
+
+Example UI:
+
+Source
+MoRTH · 2024
+
+Explore State Data →
+
+Find Related Research →
+
+The assistant must feel like a **research assistant**, not a generic chatbot.
+
+---
+
+# 40 — OPENROUTER INTEGRATION
+
+Use OpenRouter as the model gateway/provider behind an application-level assistant abstraction.
+
+Do NOT couple UI components directly to provider-specific response structures.
+
+Frontend should consume a normalized structure such as:
+
+```ts
+type AssistantSource = {
+  id: string
+  title: string
+  organisation?: string
+  year?: string
+  url?: string
+}
+
+type AssistantAction = {
+  label: string
+  href?: string
+  type?: string
+}
+
+type AssistantResponse = {
+  answer: string
+  sources: AssistantSource[]
+  actions?: AssistantAction[]
+  suggestedQuestions?: string[]
+}
+```
+
+The backend team may later change:
+
+* model
+* provider
+* retrieval layer
+* embeddings
+* streaming implementation
+
+The frontend must remain stable.
+
+---
+
+# 41 — ASSISTANT GUARDRAILS
+
+Frontend must support trust-aware states.
+
+The assistant should clearly behave as:
+
+Evidence-grounded BARS assistance.
+
+It must never visually suggest:
+
+* authority it does not have
+* unsupported certainty
+* invented BARS policy
+* fabricated statistics
+* fabricated citations
+
+Do not allow assistant output to visually resemble official policy unless it is actually sourced.
+
+---
+
+# 42 — NO-EVIDENCE STATE
+
+Create a beautiful state for insufficient evidence:
+
+“I couldn’t find enough verified information in the available BARS sources to answer that confidently.”
+
+Then provide:
+
+Search the repository
+Explore data
+Try another question
+
+This is better than hallucinating.
+
+---
+
+# 43 — SOURCE-CITATION UX FOR ASSISTANT
+
+Citations should open:
+
+* source preview
+* resource detail
+* source metadata
+
+Assistant answer structure:
+
+Answer
+
+Sources
+[1] ...
+[2] ...
+
+Related
+
+The answer should always make the provenance visible.
+
+---
+
+# 44 — UNSUPPORTED / SAFETY STATE
+
+Create a neutral, professional refusal state:
+
+“I can’t provide instructions for that.
+
+I can help with road-safety guidance, official standards, or BARS resources instead.”
+
+No aggressive warning design.
+
+---
+
+# 45 — ASSISTANT CONTEXT AWARENESS
+
+On Repository:
+
+Ask about this research.
+
+On Dashboard:
+
+Explain this data.
+
+On State Explorer:
+
+Compare this state with India.
+
+On Resource Detail:
+
+Summarise this resource.
+
+On Declaration:
+
+Explain this section.
+
+On Organisation Profile:
+
+Find related organisations.
+
+The global assistant remains consistent, but the suggestions become contextual.
+
+---
+
+# 46 — SAVED RESOURCES
+
+Build:
+
+* save
+* unsave
+* saved state
+* saved collections if appropriate
+* empty state
+* search saved
+* filter saved
+
+This should feel like part of the knowledge workflow.
+
+---
+
+# 47 — NOTIFICATIONS
+
+Create a professional notifications centre for:
+
+* contribution updates
+* verification updates
+* organisation activity
+* network introductions
+* collaboration updates
+* saved resource activity
+
+Do not make it feel like a social media product.
+
+---
+
+# 48 — SETTINGS
+
+Include frontend experiences for:
+
+* profile
+* theme
+* notification preferences
+* accessibility
+* account preferences
+* data/privacy settings where applicable
+
+Use clean sections and excellent form design.
+
+---
+
+# 49 — MICROINTERACTIONS
+
+Motion should feel like infrastructure.
+
+Use:
+
+* subtle page transitions
+* data reveal
+* chart entrance
+* map transitions
+* filter transitions
+* drawer transitions
+* search result transitions
+* assistant streaming
+* save confirmation
+* source preview transitions
+
+Avoid:
+
+* bouncing everything
+* overanimated cards
+* infinite parallax
+* excessive hover effects
+
+Respect reduced motion.
+
+---
+
+# 50 — LOADING STATES
+
+Create polished skeletons for:
+
+* homepage data
+* repository results
+* resource details
+* directory cards
+* state explorer
+* dashboard
+* assistant
+* organisation profiles
+
+Never flash blank white screens.
+
+Never rely only on spinners.
+
+---
+
+# 51 — ERROR STATES
+
+Build intentional error UX.
+
+Examples:
+
+Could not load resources.
+
+Could not load state data.
+
+Could not load organisation.
+
+Assistant temporarily unavailable.
+
+Network recommendation unavailable.
+
+Each should explain:
+
+* what happened
+* what can be done next
+
+---
+
+# 52 — EMPTY STATES
+
+Every list needs an empty state.
+
+Repository:
+No resources match your filters.
+
+Directory:
+No organisations found.
+
+Saved:
+You have not saved any resources yet.
+
+Notifications:
+You're all caught up.
+
+Search:
+No matching results.
+
+Make every state useful and visually consistent.
+
+---
+
+# 53 — RESPONSIVE REQUIREMENTS
+
+This is mandatory.
+
+Do not just collapse desktop into one column.
+
+Test at minimum:
+
+320px
+360px
+390px
+430px
+768px
+1024px
+1280px
+1440px
+1728px
+1920px
+2560px+
+
+Mobile must be first-class.
+
+Pay special attention to:
+
+* navigation
+* charts
+* tables
+* maps
+* large numbers
+* horizontal scrolling
+* filter controls
+* source metadata
+* long titles
+* assistant UI
+* resource cards
+
+---
+
+# 54 — MOBILE DASHBOARD
+
+On mobile, dashboard becomes a narrative.
+
+Order:
+
+National picture
+↓
+2030 target
+↓
+Trend
+↓
+Geography
+↓
+State rankings
+↓
+Causes
+↓
+Vulnerable road users
+↓
+Sources
+↓
+Datasets
+
+Do not squeeze desktop charts onto a tiny screen.
+
+---
+
+# 55 — MOBILE REPOSITORY
+
+Use:
+
+* prominent search
+* filter button
+* filter bottom sheet
+* active-filter chips
+* compact but readable resource cards
+* source labels
+* save affordance
+
+Avoid tiny dense table layouts.
+
+---
+
+# 56 — MOBILE DIRECTORY
+
+Cards should prioritize:
+
+Organisation
+Pillar
+Location
+Organisation type
+Key expertise
+CTA
+
+Do not force all desktop metadata into mobile cards.
+
+---
+
+# 57 — ACCESSIBILITY
+
+Target WCAG 2.2 AA principles.
+
+Implement:
+
+* semantic HTML
+* proper heading hierarchy
+* visible focus state
+* keyboard support
+* accessible dialogs/drawers
+* screen-reader labels
+* reduced motion
+* adequate contrast
+* form error association
+* touch target sizing
+* accessible charts
+* alternative textual summaries for data visualisations
+
+Do not depend on colour alone to communicate:
+
+* risk
+* status
+* verification
+* progress
+
+---
+
+# 58 — PERFORMANCE
+
+The frontend must be fast.
+
+Prioritise:
+
+* responsive image loading
+* lazy loading below the fold
+* optimized image formats
+* code splitting
+* dynamic imports for heavy visualizations
+* minimal blocking JS
+* virtualized lists where needed
+* sensible animation budgets
+
+Maps and charts should not destroy initial load performance.
+
+---
+
+# 59 — IMAGE DIRECTION
+
+Photography should feel documentary and Indian.
+
+Prefer:
+
+* real roads
+* intersections
+* people working
+* volunteers
+* researchers
+* emergency responders
+* infrastructure
+* field assessments
+* city traffic
+* motorcycles
+* pedestrians
+* highway environments
+* genuine stakeholder activity
+
+Avoid:
+
+* generic corporate stock photos
+* fake staged handshakes
+* over-smiling actors
+* unrealistic roads
+* generic Western road scenes
+
+---
+
+# 60 — ICONOGRAPHY
+
+Use one coherent icon family.
+
+Keep icons:
+
+* simple
+* geometric
+* functional
+* consistent
+
+Do not mix random icon packs.
+
+Do not use emoji for primary UI.
+
+---
+
+# 61 — DATA VISUALISATION
+
+Charts should:
+
+* have semantic labels
+* use accessible contrast
+* have legends only when needed
+* expose exact values on interaction
+* have mobile alternatives
+* avoid decoration
+
+Prefer:
+
+* line
+* bar
+* area when justified
+* ranked lists
+* sparklines
+* map
+* timeline
+
+Use custom SVG/CSS when it produces a more refined experience.
+
+---
+
+# 62 — TABLES
+
+Tables should feel like modern statistical publication tables.
+
+Use:
+
+* clear hierarchy
+* sticky headers when useful
+* horizontal scroll on mobile
+* column prioritisation
+* compact metadata
+* trend indicators
+* accessible sorting
+
+Do not create huge SaaS tables with 20 tiny columns.
+
+---
+
+# 63 — MAP EXPERIENCE
+
+The map should become a BARS signature.
+
+Support:
+
+* light map
+* dark map
+* hover/focus state
+* selected geography
+* legend
+* metric switch
+* state drill-down where supported
+
+Do not over-style the map.
+
+Data should remain the focus.
+
+---
+
+# 64 — DATA PROVENANCE
+
+Every public statistic should have a way to expose:
+
+Source
+Year
+Coverage
+Methodology
+Last updated
+
+Do not invent or silently correct data.
+
+Use supplied prototype values only as placeholder/mock content until actual API data is connected.
+
+---
+
+# 65 — MOCK DATA ARCHITECTURE
+
+Create local mock data files/types for development.
+
+Keep data separated from components.
+
+Suggested:
+
+```text
+/mock/
+  resources
+  organisations
+  experts
+  states
+  metrics
+  network
+  notifications
+  assistant
+```
+
+Do not hard-code large datasets directly into JSX.
+
+---
+
+# 66 — COMPONENT ARCHITECTURE
+
+Create reusable components.
+
+Suggested:
+
+```text
+components/
+  layout/
+  navigation/
+  hero/
+  typography/
+  buttons/
+  forms/
+  search/
+  filters/
+  cards/
+  metrics/
+  charts/
+  maps/
+  tables/
+  resources/
+  organisations/
+  experts/
+  source/
+  verification/
+  network/
+  assistant/
+  feedback/
+  loading/
+  empty/
+  error/
+  modals/
+  drawers/
+```
+
+---
+
+# 67 — DOMAIN COMPONENTS
+
+Create reusable domain-level components:
+
+`ResourceCard`
+
+`ResourceMeta`
+
+`SourceBadge`
+
+`CitationBlock`
+
+`VerificationBadge`
+
+`OrganisationCard`
+
+`OrganisationMeta`
+
+`ExpertCard`
+
+`MetricCard`
+
+`TrendIndicator`
+
+`StateSelector`
+
+`StateRankTable`
+
+`DashboardSection`
+
+`PillarBadge`
+
+`NetworkMatchCard`
+
+`AssistantPanel`
+
+`AssistantMessage`
+
+`AssistantSourceList`
+
+`AssistantAction`
+
+`ContributionStepper`
+
+---
+
+# 68 — DESIGN TOKENS
+
+Centralise:
+
+* colours
+* typography
+* spacing
+* radii
+* shadows
+* borders
+* breakpoints
+* motion
+* z-index
+* component states
+
+Never sprinkle arbitrary values everywhere.
+
+---
+
+# 69 — RADIUS SYSTEM
+
+Do NOT make every object a giant rounded pill.
+
+Use restrained geometry.
+
+Suggested hierarchy:
+
+* controls: small/medium radius
+* cards: modest radius
+* surfaces: subtle rounding
+* major editorial sections: often square or lightly rounded
+* badges: pill where appropriate
+
+Intentional geometry is important to avoiding generic AI aesthetics.
+
+---
+
+# 70 — SHADOWS
+
+Use shadows rarely.
+
+Prefer:
+
+* borders
+* surface contrast
+* spacing
+* typography
+
+over huge soft shadows.
+
+---
+
+# 71 — HEADER BEHAVIOUR
+
+Desktop:
+
+* top institutional strip optional
+* primary navigation
+* contextual actions
+
+On scroll:
+
+* gently reduce height
+* retain access to search and Ask BARS
+* no distracting animation
+
+Mobile:
+
+* compact sticky header
+
+---
+
+# 72 — FOOTER
+
+Create a premium institutional footer.
+
+Brand statement:
+
+BARS — Bharat Association of Road Safety Volunteers
+
+India's national road-safety knowledge and collaboration platform.
+
+Columns:
+
+Platform
+
+* Knowledge
+* Data
+* Network
+* Impact
+
+Participate
+
+* Contribute
+* Organisation
+* Volunteer
+* Expert
+
+Institution
+
+* About
+* Governance
+* Declaration
+* Contact
+
+Trust
+
+* Sources
+* Methodology
+* Verification
+* Accessibility
+* Privacy
+* Terms
+
+Do not give the footer generic NGO styling.
+
+---
+
+# 73 — COPY PRINCIPLES
+
+Copy should be:
+
+* direct
+* intelligent
+* human
+* confident
+* concise
+
+Avoid:
+
+* corporate jargon
+* exaggerated promises
+* empty mission language
+* buzzwords
+* excessive “AI” references
+* meaningless adjectives
+
+Prefer:
+
+* specific
+* evidence-led
+* useful language
+
+---
+
+# 74 — CONTENT INTEGRITY
+
+Never fabricate:
+
+* organisations
+* people
+* statistics
+* partnerships
+* certifications
+* government endorsements
+* research claims
+* data sources
+* impact figures
+
+When backend content is not connected, label mock content internally and structure it so real API data can replace it.
+
+---
+
+# 75 — DO NOT CHANGE PRODUCT MEANING
+
+Preserve the essential BARS concepts supplied in the source materials:
+
+Sarkaar
+Bazaar
+Samaaj
+
+2030 road-safety target
+
+Repository
+
+Directory
+
+Dashboard
+
+Network
+
+Contribution
+
+Verification
+
+Evidence
+
+Experts
+
+Organisations
+
+Data
+
+Knowledge
+
+Collaboration
+
+Assistant
+
+Do not reinterpret BARS into a different product.
+
+---
+
+# 76 — DO NOT BUILD BACKEND
+
+Backend is owned by another team.
+
+Your job is:
+
+* frontend
+* UX
+* UI
+* design system
+* responsive behaviour
+* mock API layer
+* frontend API contracts
+* loading/error states
+* assistant UI
+* OpenRouter integration boundary
+
+Do not spend implementation time building:
+
+* databases
+* authentication backend
+* ingestion systems
+* verification engines
+* data harmonisation systems
+* embeddings infrastructure
+* model training
+* backend orchestration
+
+---
+
+# 77 — API-READY FRONTEND
+
+Assume the backend team will later expose endpoints such as:
+
+```text
+GET /api/resources
+GET /api/resources/:id
+GET /api/search
+GET /api/organisations
+GET /api/organisations/:id
+GET /api/experts
+GET /api/states
+GET /api/states/:id
+GET /api/dashboard
+POST /api/contributions
+POST /api/assistant
+```
+
+Do not assume these exact contracts are final.
+
+Create clean adapters/services so endpoints can be replaced later.
+
+---
+
+# 78 — FRONTEND STATE MANAGEMENT
+
+Choose a clean approach appropriate to the stack.
+
+Keep:
+
+* server data
+* URL state
+* UI state
+* session state
+* assistant state
+
+separate.
+
+Filters and searches should ideally be URL-addressable.
+
+Example:
+
+`/repository?category=research&state=maharashtra`
+
+---
+
+# 79 — URL DESIGN
+
+Use clean human-readable routes.
+
+Example:
+
+```text
+/
+ /knowledge
+ /knowledge/:resource
+ /search
+ /data
+ /data/state/:slug
+ /network
+ /network/organisations
+ /network/organisation/:slug
+ /network/experts
+ /declaration
+ /about
+ /impact
+ /contribute
+ /register
+ /settings
+```
+
+If existing backend routes differ, frontend routing should remain clean and adaptable.
+
+---
+
+# 80 — SEO / METADATA
+
+Even though the platform is interactive, major public pages should have:
+
+* page titles
+* descriptions
+* Open Graph metadata
+* meaningful headings
+* semantic content
+* social preview
+* canonical URL handling where applicable
+
+---
+
+# 81 — PAGES TO FULLY IMPLEMENT
+
+Do not stop at the homepage.
+
+Implement complete polished frontend screens for:
+
+1. Home
+2. Search
+3. Repository
+4. Resource Detail
+5. Dashboard
+6. State Explorer
+7. Directory
+8. Organisation Detail
+9. Network
+10. Expert Network
+11. Impact
+12. New Delhi Declaration
+13. About
+14. Leadership
+15. Contribution
+16. Verification
+17. Register
+18. Join as Volunteer
+19. Join Expert Network
+20. Saved
+21. Notifications
+22. Settings
+23. Help
+24. Ask BARS experience
+
+---
+
+# 82 — PAGE CONSISTENCY
+
+Every page must feel like the same product.
+
+Share:
+
+* navigation
+* typography
+* spacing
+* source system
+* status system
+* buttons
+* cards
+* transitions
+* assistant
+* responsive logic
+
+But do NOT make every page identical.
+
+Each page has its own information hierarchy.
+
+---
+
+# 83 — HOME VS PRODUCT PAGES
+
+Homepage:
+
+* emotional
+* editorial
+* institutional
+
+Repository:
+
+* discovery
+* search
+* knowledge
+
+Dashboard:
+
+* analytical
+* quantitative
+
+Directory:
+
+* network
+* people
+
+Network:
+
+* recommendations
+* relationships
+
+Assistant:
+
+* conversation
+* evidence
+
+Maintain these distinct personalities inside one system.
+
+---
+
+# 84 — INTERACTION QUALITY
+
+Every interactive element must have:
+
+* hover
+* focus
+* pressed
+* disabled
+* loading
+* success/error states where relevant
+
+Do not ship buttons that merely change opacity on hover.
+
+---
+
+# 85 — FORMS
+
+Forms must feel exceptionally polished.
+
+Use:
+
+* clear labels
+* help text
+* validation
+* progressive disclosure
+* drag-and-drop where appropriate
+* sensible keyboard behaviour
+* mobile-friendly inputs
+* sticky submit action where useful
+
+---
+
+# 86 — DRAWERS & MODALS
+
+Use them intentionally.
+
+Examples:
+
+* filter drawer
+* source preview
+* organisation contact
+* assistant
+* image preview
+* methodology
+
+Never trap users in confusing overlays.
+
+---
+
+# 87 — MOBILE TOUCH DESIGN
+
+Minimum comfortable touch target size.
+
+Avoid:
+
+* microscopic icon buttons
+* cramped filter controls
+* side-by-side tiny actions
+* hover-only interactions
+
+Anything accessible by hover must have touch-equivalent behaviour.
+
+---
+
+# 88 — DESKTOP / ULTRAWIDE
+
+On 1440px+ screens:
+
+* use whitespace intelligently
+* avoid making content absurdly wide
+* use split editorial layouts
+* use side metadata columns
+* use large maps/charts where beneficial
+
+On ultrawide:
+
+* never stretch text blocks across the entire viewport.
+
+---
+
+# 89 — DARK MODE DETAIL
+
+Dark mode should be premium.
+
+Use:
+
+* deep navy
+* charcoal
+* soft off-white text
+* controlled amber
+* restrained green
+
+Avoid:
+
+* pure black everywhere
+* neon accents
+* glowing UI
+* excessive outlines
+
+Charts must remain readable.
+
+Maps must have proper dark basemap treatment.
+
+---
+
+# 90 — ASSISTANT DARK MODE
+
+Assistant must feel native to both themes.
+
+It should not become a separate “AI product”.
+
+Sources, actions and citations must remain easy to read.
+
+---
+
+# 91 — QUALITY BAR
+
+Before considering the work complete, visually inspect every page.
+
+Ask:
+
+Does it look handcrafted?
+
+Does every section have a clear purpose?
+
+Is the hierarchy obvious within two seconds?
+
+Does the page have a distinctive identity?
+
+Is the typography exceptional?
+
+Are the numbers beautiful and readable?
+
+Do maps feel premium?
+
+Do cards avoid generic AI styling?
+
+Does dark mode look designed?
+
+Does mobile feel first-class?
+
+Are transitions subtle?
+
+Can users understand where data came from?
+
+Can users find what they came for quickly?
+
+---
+
+# 92 — ZERO TOLERANCE FOR PLACEHOLDER VISUAL QUALITY
+
+Do NOT leave:
+
+* lorem ipsum
+* generic placeholder cards
+* broken images
+* “Lorem”
+* empty chart boxes
+* default browser form elements
+* ugly alerts
+* browser confirm dialogs
+* unstyled tables
+* raw JSON
+* inconsistent icons
+* default scrollbars everywhere
+* “coming soon” sections unless unavoidable
+
+Everything visible should look production-ready.
+
+---
+
+# 93 — MOCK CONTENT SHOULD LOOK REAL
+
+Until backend integration:
+
+* use structured mock data
+* use realistic metadata
+* use the supplied resource examples
+* use realistic states
+* use realistic categories
+* use supplied BARS terminology
+
+But do not invent false claims.
+
+---
+
+# 94 — CODE QUALITY
+
+Code should be:
+
+* typed
+* modular
+* reusable
+* accessible
+* maintainable
+* documented where necessary
+* lint-clean
+* production-oriented
+
+Avoid:
+
+* giant components
+* duplicated JSX
+* magic strings
+* hard-coded style chaos
+* page-specific hacks
+* excessive dependencies
+
+---
+
+# 95 — TECHNICAL DEFAULT
+
+Preferred modern stack:
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* accessible component primitives
+* Framer Motion or equivalent
+* high-quality charting solution
+* MapLibre or equivalent mapping layer
+* Lucide or coherent icon system
+
+Use alternatives only when necessary.
+
+---
+
+# 96 — COMPONENT DOCUMENTATION
+
+Create a lightweight internal component showcase/page so the design system can be visually reviewed.
+
+Include:
+
+* buttons
+* typography
+* badges
+* source badges
+* cards
+* inputs
+* filters
+* tables
+* metrics
+* assistant states
+* alerts
+* dialogs
+
+This will make visual consistency much easier.
+
+---
+
+# 97 — TESTING
+
+Before final delivery test:
+
+* mobile portrait
+* mobile landscape
+* tablet
+* desktop
+* ultrawide
+* light
+* dark
+* keyboard
+* screen-reader semantics
+* reduced motion
+* slow connection
+* empty data
+* error data
+* long titles
+* long organisation names
+* long assistant answers
+* many filters
+* many search results
+
+---
+
+# 98 — FINAL UX PRINCIPLE
+
+The site should repeatedly answer:
+
+### Why does BARS exist?
+
+Knowledge + collaboration + road safety mission.
+
+### What can I find?
+
+Research + data + policy + best practices.
+
+### What is happening?
+
+National/state road-safety intelligence.
+
+### Who is involved?
+
+Sarkaar + Bazaar + Samaaj.
+
+### Who can I work with?
+
+Organisations + experts + network.
+
+### What can I contribute?
+
+Knowledge + programmes + expertise.
+
+### Can BARS help me understand this?
+
+Ask BARS.
+
+---
+
+# 99 — FINAL DESIGN PRINCIPLE
+
+Build BARS as:
+
+# A national digital knowledge institution
+
+not:
+
+# A website for an NGO.
+
+The experience should feel like:
+
+**research institution**
+×
+**national data atlas**
+×
+**knowledge repository**
+×
+**stakeholder network**
+×
+**human road-safety movement**
+×
+**evidence-grounded assistant**
+
+All in one coherent system.
+
+---
+
+# 100 — EXECUTION ORDER
+
+Do NOT start by randomly creating pages.
+
+Build in this order:
+
+### PHASE 1
+
+Design tokens
+Typography
+Colours
+Theme system
+Grid
+Spacing
+Motion
+Icons
+
+### PHASE 2
+
+Global layout
+Navigation
+Footer
+Search
+Assistant shell
+
+### PHASE 3
+
+Reusable domain components
+Resource
+Organisation
+Expert
+Metric
+Source
+Verification
+Filters
+Charts
+Tables
+Maps
+
+### PHASE 4
+
+Homepage
+
+### PHASE 5
+
+Repository + Resource Detail + Search
+
+### PHASE 6
+
+Dashboard + State Explorer
+
+### PHASE 7
+
+Directory + Organisation Detail + Network + Expert Network
+
+### PHASE 8
+
+Declaration + Impact + About
+
+### PHASE 9
+
+Contribution + Verification + Registration
+
+### PHASE 10
+
+Saved + Notifications + Settings
+
+### PHASE 11
+
+OpenRouter-backed Ask BARS frontend integration
+
+### PHASE 12
+
+Performance, accessibility, responsive, visual QA
+
+---
+
+# 101 — FINAL COMMAND TO THE CODING AGENT
+
+Do not produce a mediocre first pass.
+
+Do not optimize for “done”.
+
+Optimize for:
+
+* visual excellence
+* usability
+* trust
+* coherence
+* responsiveness
+* accessibility
+* maintainability
+
+Do not ask me to manually specify every small design decision.
+
+Use strong senior-level judgement.
+
+When there is ambiguity:
+
+1. preserve BARS's product meaning,
+2. prioritize user clarity,
+3. prioritize evidence and trust,
+4. choose the simpler visual solution,
+5. avoid generic AI aesthetics,
+6. maintain consistency with the design system.
+
+Build the complete frontend as if this will be publicly launched and judged against the world's best institutional digital products.
+
+The objective is not:
+
+> “Make the website look nice.”
+
+The objective is:
+
+> **Build the most polished, credible, intuitive and memorable road-safety digital experience an Indian institution has ever launched.**
+
+Every screen must look intentional.
+
+Every interaction must feel considered.
+
+Every statistic must feel trustworthy.
+
+Every piece of navigation must feel obvious.
+
+Every mobile screen must feel first-class.
+
+Every dark-mode screen must feel designed, not inverted.
+
+Every assistant response must feel grounded, useful and transparent.
+
+Every component must belong to the same visual language.
+
+# Build BARS like it matters.
+
+Because it does.
+
+### One extra instruction I strongly recommend adding to the coding agent
+
+Before it writes the final UI, make it create a **`/design-system` or `/showcase` route** and implement the entire visual language there first. Make that page contain the typography scale, colour tokens, buttons, inputs, filters, source badges, verification badges, resource cards, organisation cards, metrics, tables, charts, assistant states, light/dark themes and responsive states.
+
+That will prevent the agent from inventing 20 different styles across 20 pages.
+
+The source material gives us a strong functional foundation: the homepage establishes the repository, ecosystem and 2030 mission; the repository establishes knowledge discovery and verification; and the directory establishes the stakeholder network.   
+
+For the **first coding-agent run**, I would start with only:
+
+**design system → global shell → homepage → repository → dashboard → directory → assistant shell**
+
+and make those absolutely exceptional before expanding to the secondary screens.
