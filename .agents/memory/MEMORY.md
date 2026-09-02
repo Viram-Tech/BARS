@@ -1,0 +1,1 @@
+- [Artifact build compatibility](artifact-build-compatibility.md) — keep Vite artifacts runnable in both workflow-provided and standalone build environments.

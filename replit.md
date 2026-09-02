@@ -1,6 +1,6 @@
-# [Project name]
+# BARS Road Safety Platform
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An evidence-led platform connecting India’s road-safety research, data, practitioners, and institutions around the 2030 mission.
 
 ## Run & Operate
 
@@ -22,15 +22,25 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/bars-platform/src/App.tsx` — BARS web shell, routes, mock repository, dashboard, directory, design system, and Ask BARS shell
+- `artifacts/bars-platform/src/index.css` — shared BARS theme tokens, typography, dark mode, and motion
+- `artifacts/api-server/src/` — Express API entrypoint and routes
+- `artifacts/mockup-sandbox/` — canvas component preview server
+- `attached_assets/` — imported source notes and assets
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The web experience uses mock-backed, typed-in-source records for the first product slice so the information architecture can be validated before API retrieval is connected.
+- The artifact keeps the existing pnpm workspace structure and path-based artifact routing.
+- Vite configs preserve workflow-provided `PORT` and `BASE_PATH` values while providing artifact-local defaults for standalone builds.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Public BARS homepage framing the Sarkaar, Bazaar, and Samaaj network
+- Searchable evidence repository with format and region filters, saved records, record notes, and catalogue download
+- National intelligence dashboard with state comparison and coverage indicators
+- Verified stakeholder directory with organisation/expert filters and contribution prompt
+- Living design-system showcase and global Ask BARS assistant shell
 
 ## User preferences
 
