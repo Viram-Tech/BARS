@@ -150,7 +150,7 @@ export function Shell({
                  onChange={(event) => setLanguage(event.target.value as typeof language)}
                  data-testid="select-language-preference"
                  title={copy.language}
-                 className="focus-ring h-9 max-w-[136px] appearance-none bg-transparent pl-7 pr-2 text-xs font-semibold text-muted-foreground outline-none hover:text-foreground cursor-pointer"
+                 className="bars-language-select focus-ring h-9 max-w-[136px] appearance-none bg-transparent pl-7 pr-2 text-xs font-semibold text-foreground outline-none hover:text-foreground cursor-pointer"
                >
                   <option value="en">English · English</option>
                   <optgroup label="22 official Indic languages">
