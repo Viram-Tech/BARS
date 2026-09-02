@@ -10,6 +10,7 @@ import {
   MessageCircle, 
   Moon, 
   Sun, 
+  Monitor,
   SlidersHorizontal,
   ArrowUpRight,
   Languages,
@@ -161,30 +162,40 @@ export function Shell({
 
              <div className="mx-1 h-5 w-px bg-border" />
             
-            <label className="sr-only" htmlFor="theme-preference">Theme preference</label>
-             <div className="flex items-center gap-1 rounded-md border border-border bg-muted/40 p-1">
+             <div role="group" aria-label="Theme preference" className="flex items-center gap-1 rounded-md border border-border bg-muted/40 p-1">
                <button
                  type="button"
-                 aria-label={theme === 'dark' ? copy.light : copy.dark}
-                 title={theme === 'dark' ? copy.light : copy.dark}
-                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                 data-testid="button-theme-toggle"
-                 className="focus-ring flex h-7 w-7 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:bg-background hover:text-foreground"
+                  aria-label={copy.system}
+                  aria-pressed={theme === 'system'}
+                  title={copy.system}
+                  onClick={() => setTheme('system')}
+                  data-testid="button-theme-system"
+                  className={`focus-ring flex h-7 w-7 items-center justify-center rounded-sm transition-colors ${theme === 'system' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:bg-background/70 hover:text-foreground'}`}
                >
-                 {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+                  <Monitor size={14} strokeWidth={1.8} />
                </button>
-               <label className="sr-only" htmlFor="theme-preference">{copy.language}</label>
-               <select
-                 id="theme-preference"
-                 value={theme}
-                 onChange={(event) => setTheme(event.target.value as ThemeMode)}
-                 data-testid="select-theme-preference"
-                 className="focus-ring hidden h-7 appearance-none bg-transparent px-1 text-[10px] font-semibold text-muted-foreground outline-none hover:text-foreground cursor-pointer sm:block"
+                <button
+                  type="button"
+                  aria-label={copy.light}
+                  aria-pressed={theme === 'light'}
+                  title={copy.light}
+                  onClick={() => setTheme('light')}
+                  data-testid="button-theme-light"
+                  className={`focus-ring flex h-7 w-7 items-center justify-center rounded-sm transition-colors ${theme === 'light' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:bg-background/70 hover:text-foreground'}`}
                >
-                 <option value="system">{copy.system}</option>
-                 <option value="light">{copy.light}</option>
-                 <option value="dark">{copy.dark}</option>
-               </select>
+                  <Sun size={14} strokeWidth={1.8} />
+                </button>
+                <button
+                  type="button"
+                  aria-label={copy.dark}
+                  aria-pressed={theme === 'dark'}
+                  title={copy.dark}
+                  onClick={() => setTheme('dark')}
+                  data-testid="button-theme-dark"
+                  className={`focus-ring flex h-7 w-7 items-center justify-center rounded-sm transition-colors ${theme === 'dark' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:bg-background/70 hover:text-foreground'}`}
+                >
+                  <Moon size={14} strokeWidth={1.8} />
+                </button>
             </div>
           </div>
         </header>
