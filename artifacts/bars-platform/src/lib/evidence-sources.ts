@@ -1,5 +1,5 @@
 import pibLogo from '@sources/PIB_LOGO.webp';
-import barsLogo from '@sources/Bars_Org_IMGS/logo-color.png';
+import { barsOrgMedia } from '@/lib/bars-org-media';
 
 const emblem = 'https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg';
 const whoLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/WHO_logo.svg/240px-WHO_logo.svg.png';
@@ -105,7 +105,7 @@ export const evidenceSources: EvidenceSource[] = [
     name: 'Bharat Association of Road Safety Volunteers',
     short: 'BARS',
     href: 'https://bars.org.in',
-    logo: barsLogo,
+    logo: barsOrgMedia.logo.color,
     fallbackLogo: favicon('bars.org.in'),
     role: 'New Delhi Road Safety Declaration',
   },

@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 import { Navbar1 } from '@/components/ui/navbar-1';
-import { SiteFooter } from '@/components/shared';
+import { SiteFooter } from '@/components/site-footer';
 import { tickerItems } from '@/lib/site-content';
 
 export function Shell({ children }: { children: ReactNode }) {

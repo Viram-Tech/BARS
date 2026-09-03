@@ -127,6 +127,9 @@ export function Navbar1() {
   const [location] = useLocation();
   const { copy } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const compactRef = useRef(false);
 
   const navItems: { href: string; label: string; icon: React.ComponentType<HugeIconProps> }[] = [
     { href: '/', label: copy.home, icon: Command },
@@ -144,10 +147,50 @@ export function Navbar1() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduceMotion(mq.matches);
+    const onMotionChange = () => setReduceMotion(mq.matches);
+    mq.addEventListener('change', onMotionChange);
+    return () => mq.removeEventListener('change', onMotionChange);
+  }, []);
+
+  useEffect(() => {
+    const compactAt = 52;
+    const expandAt = 10;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (!compactRef.current && y > compactAt) {
+        compactRef.current = true;
+        setIsCompact(true);
+      } else if (compactRef.current && y < expandAt) {
+        compactRef.current = false;
+        setIsCompact(false);
+      }
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const motionClass = reduceMotion ? 'duration-0' : 'duration-300 ease-out';
+
   return (
-    <div className="flex w-full justify-center px-4 pb-3 pt-5 sm:px-6 sm:pb-4 sm:pt-6">
-      <div className="relative z-10 flex w-full max-w-5xl items-center justify-between rounded-full border border-border bg-card/90 px-3 py-2 shadow-[0_12px_40px_hsl(var(--foreground)/.10)] backdrop-blur-xl sm:px-5 sm:py-2.5">
-        <Link href="/" data-testid="link-header-logo" className="focus-ring shrink-0 rounded-full px-1">
+    <div
+      className={`bars-page transition-[padding] ${motionClass} ${
+        isCompact ? 'pb-1 pt-1 sm:pb-1.5 sm:pt-1.5' : 'pb-3 pt-4 sm:pb-4 sm:pt-5'
+      }`}
+    >
+      <div
+        className={`relative z-10 isolate grid w-full grid-cols-[auto_1fr_auto] items-center gap-2 overflow-hidden rounded-full border border-border bg-card/90 px-3 py-2 shadow-[0_12px_40px_hsl(var(--foreground)/.10)] backdrop-blur-xl transition-[max-width,box-shadow,margin] dark:bg-card/95 dark:shadow-[0_12px_40px_hsl(var(--background)/.55)] sm:gap-3 sm:px-5 sm:py-2.5 ${motionClass} ${
+          isCompact
+            ? 'mx-auto max-w-2xl shadow-[0_10px_32px_hsl(var(--foreground)/.09)] sm:max-w-3xl md:max-w-4xl lg:max-w-[880px]'
+            : ''
+        }`}
+      >
+        <Link href="/" data-testid="link-header-logo" className="focus-ring shrink-0 rounded-full px-0.5 sm:px-1">
           <motion.div
             className="flex items-center"
             initial={{ scale: 0.96, opacity: 0 }}
@@ -159,7 +202,10 @@ export function Navbar1() {
           </motion.div>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav
+          className={`hidden min-w-0 items-center justify-center md:flex gap-0.5 lg:gap-1 transition-[gap] ${motionClass}`}
+          aria-label="Primary"
+        >
           {navItems.map((item, index) => {
             const active = item.href === location;
             return (
@@ -169,13 +215,12 @@ export function Navbar1() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.28, delay: index * 0.05 }}
                 whileHover={{ scale: 1.04 }}
+                className="shrink-0"
               >
                 <Link
                   href={item.href}
                   data-testid={`link-nav-${item.label.toLowerCase().replaceAll(' ', '-')}`}
-                  className={`focus-ring inline-flex h-9 items-center whitespace-nowrap rounded-full px-3.5 text-sm font-medium transition-colors ${
-                    active ? 'bg-secondary/15 text-secondary' : 'text-foreground/80 hover:text-foreground'
-                  }`}
+                  className={`focus-ring inline-flex h-9 items-center whitespace-nowrap rounded-full px-2.5 text-sm font-medium transition-[padding,color,background-color] lg:px-3.5 ${motionClass} ${active ? 'bg-secondary/15 text-secondary' : 'text-foreground/80 hover:text-foreground'}`}
                 >
                   {item.label}
                 </Link>
@@ -184,26 +229,23 @@ export function Navbar1() {
           })}
         </nav>
 
-        <motion.div
-          className="hidden items-center gap-2 md:flex"
-          initial={{ opacity: 0, x: 16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.15 }}
-        >
-          <LanguageMenu />
-          <ThemeToggle />
-        </motion.div>
+        <div className="flex shrink-0 items-center justify-self-end gap-1 sm:gap-2">
+          <div className="hidden items-center gap-1 md:flex lg:gap-2">
+            <LanguageMenu />
+            <ThemeToggle />
+          </div>
 
-        <motion.button
-          type="button"
-          aria-label="Open navigation"
-          data-testid="button-open-menu"
-          className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-foreground md:hidden"
-          onClick={() => setIsOpen(true)}
-          whileTap={{ scale: 0.92 }}
-        >
-          <Menu size={20} />
-        </motion.button>
+          <motion.button
+            type="button"
+            aria-label="Open navigation"
+            data-testid="button-open-menu"
+            className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-foreground md:hidden"
+            onClick={() => setIsOpen(true)}
+            whileTap={{ scale: 0.92 }}
+          >
+            <Menu size={20} />
+          </motion.button>
+        </div>
       </div>
 
       <AnimatePresence>

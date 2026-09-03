@@ -107,6 +107,24 @@ export const ChevronLeftIcon = createHugeIcon(() => (
 ));
 export const ChevronLeft = ChevronLeftIcon;
 
+export function Star({ size = 20, className = '', ...props }: HugeIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      className={`shrink-0 select-none ${className}`}
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M12 2.5l2.82 5.71 6.3.92-4.56 4.44 1.08 6.28L12 17.02l-5.64 2.97 1.08-6.28L2.88 9.13l6.3-.92L12 2.5z"
+      />
+    </svg>
+  );
+}
+
 // Navigation and Layout
 export const DashboardSquare01Icon = createHugeIcon(() => (
   <>

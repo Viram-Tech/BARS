@@ -50,6 +50,7 @@ import {
   Treemap,
 } from 'recharts';
 import { PageHeader, SectionLabel } from '@/components/shared';
+import { CountUpNumber } from '@/components/count-up-number';
 import { mediaLibrary } from '@/lib/media-library';
 import {
   kaggleAccidentSource,
@@ -68,7 +69,7 @@ import {
   kaggleWeather,
   kaggleYearly,
 } from '@/lib/kaggle-accidents';
-import { officialPedestrian, officialRoadCondition, officialViolations, pibFacts } from '@/lib/official-series';
+import { officialNational, officialPedestrian, officialRoadCondition, officialViolations, pibFacts } from '@/lib/official-series';
 import { evidenceSources } from '@/lib/evidence-sources';
 
 const fmtIN = (value: number) => new Intl.NumberFormat('en-IN').format(value);
@@ -81,6 +82,8 @@ const tooltipStyle = {
 
 const AS_OF = '02 Sep 2026';
 const AS_OF_ISO = '2026-09-02T11:42:00+05:30';
+const KPI_2025 = officialNational[4];
+const KPI_DAILY_DEATHS = Math.round(KPI_2025.deaths / 365);
 
 const nationalTrendData = [
   { year: '2015', deaths: 146555, accidents: 505770, injuries: 503608, severity: 29.0 },
@@ -375,24 +378,6 @@ const graphQLPresets = [
   },
 ];
 
-function useCountUp(target: number, enabled: boolean, duration = 900) {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    if (!enabled) return;
-    const start = performance.now();
-    let frame = 0;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - (1 - t) ** 3;
-      setValue(Math.round(target * eased));
-      if (t < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [target, duration, enabled]);
-  return value;
-}
-
 function DashboardLoadingState({ stage }: { stage: number }) {
   const stageLabels = [
     'Connecting to MoRTH eDAR, TRW tables, and 28 State hubs...',
@@ -476,10 +461,7 @@ export default function Dashboard() {
     [selectedNodeId],
   );
   const activePreset = graphQLPresets[activePresetIndex];
-
-  const deathsCount = useCountUp(183434, !isLoading);
-  const crashesCount = useCountUp(513474, !isLoading);
-  const dailyCount = useCountUp(503, !isLoading, 700);
+  const kpiReady = !isLoading;
 
   const runDataFetch = () => {
     setIsLoading(true);
@@ -588,17 +570,23 @@ export default function Dashboard() {
               <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
                 <div className="surface-card rounded-xl p-5 sm:col-span-2 animate-rise">
                   <SectionLabel number="01">National fatalities 2025</SectionLabel>
-                  <p className="mt-4 font-mono-ui text-4xl font-bold tracking-tight text-foreground">{fmtIN(deathsCount)}</p>
+                  <p className="mt-4 font-mono-ui text-4xl font-bold tracking-tight text-foreground">
+                    <CountUpNumber value={KPI_2025.deaths} immediate enabled={kpiReady} duration={900} />
+                  </p>
                   <p className="mt-2 text-xs text-muted-foreground">Lok Sabha Q.1939 · +3.5% over 1,77,175 in 2024</p>
                     </div>
                 <div className="surface-card rounded-xl p-5 animate-rise" style={{ animationDelay: '60ms' }}>
                   <SectionLabel number="02">Crashes 2025</SectionLabel>
-                  <p className="mt-4 font-mono-ui text-3xl font-bold tracking-tight">{fmtIN(crashesCount)}</p>
+                  <p className="mt-4 font-mono-ui text-3xl font-bold tracking-tight">
+                    <CountUpNumber value={KPI_2025.accidents} immediate enabled={kpiReady} duration={900} delay={60} />
+                  </p>
                   <p className="mt-2 text-xs text-muted-foreground">+5.3% year on year</p>
                   </div>
                 <div className="surface-card rounded-xl p-5 animate-rise" style={{ animationDelay: '90ms' }}>
                   <SectionLabel number="03">Deaths / day</SectionLabel>
-                  <p className="mt-4 font-mono-ui text-3xl font-bold tracking-tight text-destructive">{dailyCount}</p>
+                  <p className="mt-4 font-mono-ui text-3xl font-bold tracking-tight text-destructive">
+                    <CountUpNumber value={KPI_DAILY_DEATHS} immediate enabled={kpiReady} duration={700} delay={90} />
+                  </p>
                   <p className="mt-2 text-xs text-muted-foreground">485 per day in 2024</p>
                   </div>
                 <div className="rounded-xl border border-primary bg-primary text-primary-foreground p-5 animate-rise" style={{ animationDelay: '120ms' }}>
@@ -618,15 +606,18 @@ export default function Dashboard() {
 
               <div className="flex flex-wrap gap-2">
                 {[
-                  { label: 'NH network', value: `${fmtIN(pibFacts.nhKm)} km` },
-                  { label: 'Vehicles scrapped', value: fmtIN(pibFacts.vehiclesScrapped) },
-                  { label: 'RVSFs', value: String(pibFacts.rvsf) },
-                  { label: 'Cashless cover', value: `₹${pibFacts.cashlessCoverLakh} lakh` },
-                  { label: 'Black corridors', value: fmtIN(pibFacts.blackCorridors) },
-                ].map((item) => (
+                  { label: 'NH network', value: pibFacts.nhKm, suffix: ' km' },
+                  { label: 'Vehicles scrapped', value: pibFacts.vehiclesScrapped },
+                  { label: 'RVSFs', value: pibFacts.rvsf },
+                  { label: 'Cashless cover', value: pibFacts.cashlessCoverLakh, prefix: '₹', suffix: ' lakh' },
+                  { label: 'Black corridors', value: pibFacts.blackCorridors },
+                ].map((item, index) => (
                   <span key={item.label} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
                     <span className="font-mono-ui text-[10px] uppercase tracking-wider text-muted-foreground">{item.label}</span>
-                    <span className="font-mono-ui text-xs font-semibold text-foreground">{item.value}</span>
+                    <span className="font-mono-ui text-xs font-semibold text-foreground">
+                      {item.prefix}
+                      <CountUpNumber value={item.value} suffix={item.suffix} immediate enabled={kpiReady} delay={index * 40} duration={650} />
+                    </span>
                   </span>
                 ))}
                 </div>
@@ -1091,11 +1082,15 @@ export default function Dashboard() {
                       <div className="mt-6 grid grid-cols-2 gap-3">
                         <div className="rounded-lg border border-border bg-background p-4">
                           <span className="text-xs text-muted-foreground">2024 deaths</span>
-                          <p className="mt-1 font-mono-ui text-2xl font-bold">{fmtIN(selectedStateData.deaths2024)}</p>
+                          <p className="mt-1 font-mono-ui text-2xl font-bold">
+                            <CountUpNumber value={selectedStateData.deaths2024} immediate enabled={kpiReady} key={`${selectedState}-2024`} />
+                          </p>
                         </div>
                         <div className="rounded-lg border border-border bg-background p-4">
                           <span className="text-xs text-muted-foreground">2025 deaths</span>
-                          <p className="mt-1 font-mono-ui text-2xl font-bold">{fmtIN(selectedStateData.deaths2025)}</p>
+                          <p className="mt-1 font-mono-ui text-2xl font-bold">
+                            <CountUpNumber value={selectedStateData.deaths2025} immediate enabled={kpiReady} delay={40} key={`${selectedState}-2025`} />
+                          </p>
                         </div>
                       </div>
                       <div className="mt-4 flex items-center justify-between rounded-lg bg-background border border-border p-4">
@@ -1148,14 +1143,18 @@ export default function Dashboard() {
                 <div className="space-y-8 animate-fade">
                   <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                     {[
-                      { n: '01', label: 'Sample records', value: fmtIN(kaggleKpis.records), note: kaggleAccidentSource.file },
-                      { n: '02', label: 'Fatal events', value: fmtIN(kaggleKpis.fatal), note: '14.9% of the sample' },
-                      { n: '03', label: 'Casualties', value: fmtIN(kaggleKpis.casualties), note: 'Injured + killed in-file' },
-                      { n: '04', label: 'Mean risk score', value: kaggleKpis.meanRisk.toFixed(3), note: 'Composite 0–1 index' },
-                    ].map((item) => (
+                      { n: '01', label: 'Sample records', value: kaggleKpis.records, note: kaggleAccidentSource.file },
+                      { n: '02', label: 'Fatal events', value: kaggleKpis.fatal, note: '14.9% of the sample' },
+                      { n: '03', label: 'Casualties', value: kaggleKpis.casualties, note: 'Injured + killed in-file' },
+                      { n: '04', label: 'Mean risk score', value: Math.round(kaggleKpis.meanRisk * 1000), display: kaggleKpis.meanRisk.toFixed(3), note: 'Composite 0–1 index' },
+                    ].map((item, index) => (
                       <div key={item.n} className="surface-card rounded-xl p-5">
                         <SectionLabel number={item.n}>{item.label}</SectionLabel>
-                        <p className="mt-4 font-mono-ui text-3xl font-bold tracking-tight text-foreground">{item.value}</p>
+                        <p className="mt-4 font-mono-ui text-3xl font-bold tracking-tight text-foreground">
+                          {item.display ?? (
+                            <CountUpNumber value={item.value} immediate enabled={kpiReady} delay={index * 50} />
+                          )}
+                        </p>
                         <p className="mt-2 text-xs text-muted-foreground">{item.note}</p>
                             </div>
                     ))}
@@ -1280,13 +1279,15 @@ export default function Dashboard() {
 
                   <div className="grid gap-4 sm:grid-cols-3">
                     {[
-                      { n: '18', label: '5-lakh records', value: fmtIN(kaggle5LKpis.records) },
-                      { n: '19', label: 'Casualties in-file', value: fmtIN(kaggle5LKpis.casualties) },
-                      { n: '20', label: 'Peak-hour share', value: `${kaggle5LKpis.peakHourShare}%` },
-                    ].map((item) => (
+                      { n: '18', label: '5-lakh records', value: kaggle5LKpis.records },
+                      { n: '19', label: 'Casualties in-file', value: kaggle5LKpis.casualties },
+                      { n: '20', label: 'Peak-hour share', value: kaggle5LKpis.peakHourShare, suffix: '%' },
+                    ].map((item, index) => (
                       <div key={item.n} className="surface-card rounded-xl p-5">
                         <SectionLabel number={item.n}>{item.label}</SectionLabel>
-                        <p className="mt-3 font-mono-ui text-2xl font-bold text-foreground">{item.value}</p>
+                        <p className="mt-3 font-mono-ui text-2xl font-bold text-foreground">
+                          <CountUpNumber value={item.value} suffix={item.suffix} immediate enabled={kpiReady} delay={index * 45} />
+                        </p>
                       </div>
                     ))}
                     </div>

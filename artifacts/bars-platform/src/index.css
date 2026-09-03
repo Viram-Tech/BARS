@@ -168,6 +168,27 @@
   .font-display { font-family: var(--app-font-serif); }
   .font-mono-ui { font-family: var(--app-font-mono); }
   .text-balance { text-wrap: balance; }
+  .bars-word-mark {
+    position: relative;
+    display: inline;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+  .bars-word-mark::after {
+    content: '';
+    position: absolute;
+    left: -0.04em;
+    right: -0.04em;
+    bottom: 0.06em;
+    height: 0.34em;
+    border-radius: 2px;
+    background: linear-gradient(90deg, hsl(var(--secondary) / 0.52), hsl(var(--secondary) / 0.18));
+    z-index: -1;
+    transform: skewX(-5deg);
+  }
+  .dark .bars-word-mark::after {
+    background: linear-gradient(90deg, hsl(var(--secondary) / 0.38), hsl(var(--secondary) / 0.12));
+  }
   .institutional-rule { border-top: 1px solid hsl(var(--border)); }
   .focus-ring:focus-visible { outline: 2px solid hsl(var(--secondary)); outline-offset: 3px; }
   .surface-card {

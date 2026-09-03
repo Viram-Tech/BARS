@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm run build:web",
+  "outputDirectory": "artifacts/bars-platform/dist/public",
+  "installCommand": "pnpm install",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

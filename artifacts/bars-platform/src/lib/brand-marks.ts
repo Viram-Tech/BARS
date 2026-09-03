@@ -1,5 +1,5 @@
-import barsLogo from '@assets/BARS_LOGO_1788333872731.png';
 import pibLogo from '@sources/PIB_LOGO.webp';
+import { barsOrgMedia } from '@/lib/bars-org-media';
 
 type BrandMark = {
   imageUrl: string;
@@ -9,8 +9,8 @@ type BrandMark = {
 const favicon = (domain: string) => `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 
 export const brandMarks: Record<string, BrandMark> = {
-  'BARS Evidence Unit': { imageUrl: barsLogo, sourceLabel: 'BARS original mark' },
-  'BARS Learning Lab': { imageUrl: barsLogo, sourceLabel: 'BARS original mark' },
+  'BARS Evidence Unit': { imageUrl: barsOrgMedia.logo.color, sourceLabel: 'BARS official mark' },
+  'BARS Learning Lab': { imageUrl: barsOrgMedia.logo.color, sourceLabel: 'BARS official mark' },
   'Karnataka Road Safety Authority': { imageUrl: 'https://karnataka.gov.in/frontend/assets/img/favicon.ico', sourceLabel: 'Public mark via karnataka.gov.in' },
   'SaveLIFE Foundation': { imageUrl: 'https://savelifefoundation.org/wp-content/themes/safe/assets/favis/favicon.png', sourceLabel: 'Public mark via savelifefoundation.org' },
   'Mahindra Logistics': { imageUrl: 'https://mahindralogistics.com/wp-content/uploads/2024/10/Mahindra-Logo.png', sourceLabel: 'Public mark via mahindralogistics.com' },

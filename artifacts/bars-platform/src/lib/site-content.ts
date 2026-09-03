@@ -1,3 +1,5 @@
+import { getBarsVoicePhoto } from '@/lib/bars-org-media';
+
 export const barsOrg = {
   name: 'Bharat Association of Road Safety Volunteers',
   short: 'BARS',
@@ -50,44 +52,49 @@ export const barsIsNot = [
   'Not activism without evidence',
 ];
 
-const voicePhoto = (file: string) => `/media/voices/${file}`;
-
+/** Carousel order: Mats · Umashankar · Rama · Pawan · Sudhir · Naresh */
 export const voices = [
   {
-    quote: 'Human life is non-negotiable. Road safety cannot remain fragmented or reactive. I support the New Delhi Road Safety Declaration because it calls for coordinated, accountable action to prevent deaths that should never occur.',
-    name: 'Sudhir Malhotra',
-    role: 'Former Vice-President, Renault India',
-    photo: voicePhoto('sudhir-malhotra.jpg'),
-  },
-  {
-    quote: 'Of the four E’s of Road Safety, Engineering of Roads is not really in our hands, Enforcement is not in our hands, Emergency services is not in our hands. The only thing in our hands is Education — Driver Education. I believe a well trained, defensive driver can drive safely, overcoming flaws in engineering and enforcement. And that is why I stand in support of the New Delhi Road Safety Declaration.',
-    name: 'Naresh Raghavan',
-    role: 'Topdriver India',
-    photo: voicePhoto('naresh.jpg'),
-  },
-  {
-    quote: 'Road safety is now firmly on the global agenda, with strong political and media attention. Our responsibility is to move beyond awareness and ensure consistent, evidence-based implementation so that no country is left behind in preventing road traffic deaths.',
+    quote:
+      'Road safety is now firmly on the global agenda, with strong political and media attention. Our responsibility is to move beyond awareness and ensure consistent, evidence-based implementation so that no country is left behind in preventing road traffic deaths.',
     name: 'Dr. Mats-Åke Belin',
     role: 'Global Lead – Decade of Action for Road Safety, WHO',
-    photo: voicePhoto('mats.jpg'),
+    photo: getBarsVoicePhoto('Dr. Mats-Åke Belin')!,
   },
   {
-    quote: 'As a nation, we cannot accept road fatalities as inevitable. Each accident is personal, each loss preventable. Awareness is not enough — what we need is organised, district-level action, backed by certainty of enforcement and supported by strong institutions. When compliance becomes habit and accountability becomes certain, road safety will move from intention to impact.',
+    quote:
+      'As a nation, we cannot accept road fatalities as inevitable. Each accident is personal, each loss preventable. Awareness is not enough - what we need is organised, district-level action, backed by certainty of enforcement and supported by strong institutions. When compliance becomes habit and accountability becomes certain, road safety will move from intention to impact.',
     name: 'Sh. V. Umashankar',
     role: 'Secretary, Ministry of Road Transport & Highways, Government of India',
-    photo: voicePhoto('umashankar.png'),
+    photo: getBarsVoicePhoto('Sh. V. Umashankar')!,
   },
   {
-    quote: 'Road safety is not merely a transport issue; it is a governance responsibility and a moral obligation. The New Delhi Declaration shifts the national conversation from fragmented initiatives to coordinated, time-bound, accountable action.',
+    quote:
+      'Road safety is not merely a transport issue; it is a governance responsibility and a moral obligation. The New Delhi Declaration shifts the national conversation from fragmented initiatives to coordinated, time-bound, accountable action.',
     name: 'Rama Shankar Pandey',
     role: 'Chairman – BARS',
-    photo: voicePhoto('rama.png'),
+    photo: getBarsVoicePhoto('Rama Shankar Pandey')!,
   },
   {
-    quote: 'Road safety is a systems challenge, one that demands shared responsibility and collective action. BARS and the New Delhi Declaration have brought together India’s road safety ecosystem — the institutions, data and design — putting human life at the forefront. The Declaration will transform intent into accountability, at scale.',
+    quote:
+      'Road safety is a Systems challenge, one that demands shared responsibility and collective action. BARS and the New Delhi Declaration have brought together India\'s road safety ecosystem- the institutions, data and design- putting human life at the forefront. The Declaration will transform intent into accountability, at scale.',
     name: 'Pawan Mulukutla',
-    role: 'Executive Program Director, Integrated Transport, Clean Air and Hydrogen, WRI India',
-    photo: voicePhoto('pawan.jpg'),
+    role: 'Executive Program Director – Integrated Transport, Clean Air and Hydrogen at WRI India',
+    photo: getBarsVoicePhoto('Pawan Mulukutla')!,
+  },
+  {
+    quote:
+      'Human life is non-negotiable. Road safety cannot remain fragmented or reactive. I support the New Delhi Road Safety Declaration because it calls for coordinated, accountable action to prevent deaths that should never occur.',
+    name: 'Sudhir Malhotra',
+    role: 'Former Vice-President, Renault India',
+    photo: getBarsVoicePhoto('Sudhir Malhotra')!,
+  },
+  {
+    quote:
+      'Of the four E\'s of Road Safety, Engineering of Roads is not really in our hands, Enforcement is not in our hands, Emergency services is not in our hands. The only thing in our hands is Education — Driver Education. I believe a well trained, defensive driver can drive safely, overcoming flaws in engineering and enforcement. And that is why I stand in support of the New Delhi Road Safety Declaration.',
+    name: 'Naresh Raghavan',
+    role: 'Topdriver India',
+    photo: getBarsVoicePhoto('Naresh Raghavan')!,
   },
 ];
 

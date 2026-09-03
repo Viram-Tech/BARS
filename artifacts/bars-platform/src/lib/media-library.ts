@@ -1,9 +1,4 @@
-import heroImage from '@assets/generated_images/road-safety-hero.jpg';
-import evidenceImage from '@assets/generated_images/road-safety-evidence.jpg';
-import communityImage from '@assets/generated_images/road-safety-community.jpg';
-import repositoryImage from '@assets/generated_images/repository.jpg';
-import roadRotating from '@assets/Videos/Road_Rotating.mp4';
-import roadsideTimelapse from '@assets/Videos/Roadside_Timelapse.mp4';
+import { barsOrgMedia } from '@/lib/bars-org-media';
 
 type MediaStill = {
   src: string;
@@ -13,41 +8,50 @@ type MediaStill = {
 
 type MediaReel = {
   src: string;
+  poster: string;
   label: string;
   note: string;
   preload: 'none' | 'metadata' | 'auto';
 };
 
+const { banners } = barsOrgMedia;
+
+/** Served from public/media — not bundled (keeps deploy size down). */
+const roadsideTimelapse = '/media/roadside-timelapse.mp4';
+const roadRotating = '/media/road-rotating.mp4';
+
 export const mediaLibrary = {
   hero: {
-    src: heroImage,
-    alt: 'Urban road traffic in India with a protected pedestrian crossing',
-    label: 'Protected crossing',
+    src: banners.hero,
+    alt: 'BARS road safety platform — field context across India',
+    label: 'National field context',
   } satisfies MediaStill,
   evidence: {
-    src: evidenceImage,
-    alt: 'Traffic engineer reviewing evidence beside a safer intersection',
+    src: banners.field1,
+    alt: 'Road safety evidence and corridor monitoring — BARS',
     label: 'Evidence in the field',
   } satisfies MediaStill,
   community: {
-    src: communityImage,
-    alt: 'Road-safety practitioners and community members beside a school-zone street',
+    src: banners.about,
+    alt: 'BARS volunteers and road safety practitioners',
     label: 'Community on the street',
   } satisfies MediaStill,
   repository: {
-    src: repositoryImage,
-    alt: 'Road-safety evidence and transport research materials',
-    label: 'Knowledge shelf',
+    src: banners.field2,
+    alt: 'Safer roads collective action — BARS organisation',
+    label: 'Knowledge in practice',
   } satisfies MediaStill,
   reels: [
     {
       src: roadsideTimelapse,
+      poster: banners.field1,
       label: 'Corridor flow',
       note: 'Volume moving through a typical stretch.',
       preload: 'metadata',
     },
     {
       src: roadRotating,
+      poster: banners.field2,
       label: 'Night on the highway',
       note: 'Long sightlines and mixed traffic after dusk.',
       preload: 'none',
