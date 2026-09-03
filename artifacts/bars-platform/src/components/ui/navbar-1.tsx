@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'wouter';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValue, useTransform } from 'framer-motion';
 import {
   BookOpen,
   Command,
@@ -127,9 +127,22 @@ export function Navbar1() {
   const [location] = useLocation();
   const { copy } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [isCompact, setIsCompact] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
-  const compactRef = useRef(false);
+  const scrollY = useMotionValue(0);
+
+  const scrollRange = 96;
+  const paddingTop = useTransform(scrollY, [0, scrollRange], [20, 6], { clamp: true });
+  const paddingBottom = useTransform(scrollY, [0, scrollRange], [16, 6], { clamp: true });
+  const barMaxWidth = useTransform(scrollY, [0, scrollRange], [1240, 880], { clamp: true });
+  const barShadow = useTransform(
+    scrollY,
+    [0, scrollRange],
+    [
+      '0 12px 40px hsl(var(--foreground) / 0.10)',
+      '0 8px 28px hsl(var(--foreground) / 0.08)',
+    ],
+    { clamp: true },
+  );
 
   const navItems: { href: string; label: string; icon: React.ComponentType<HugeIconProps> }[] = [
     { href: '/', label: copy.home, icon: Command },
@@ -156,75 +169,50 @@ export function Navbar1() {
   }, []);
 
   useEffect(() => {
-    const compactAt = 52;
-    const expandAt = 10;
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (!compactRef.current && y > compactAt) {
-        compactRef.current = true;
-        setIsCompact(true);
-      } else if (compactRef.current && y < expandAt) {
-        compactRef.current = false;
-        setIsCompact(false);
-      }
-    };
-
+    const onScroll = () => scrollY.set(window.scrollY);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const motionClass = reduceMotion ? 'duration-0' : 'duration-300 ease-out';
+  }, [scrollY]);
 
   return (
-    <div
-      className={`bars-page transition-[padding] ${motionClass} ${
-        isCompact ? 'pb-1 pt-1 sm:pb-1.5 sm:pt-1.5' : 'pb-3 pt-4 sm:pb-4 sm:pt-5'
-      }`}
+    <motion.div
+      className="bars-page"
+      initial={false}
+      style={reduceMotion ? { paddingTop: 20, paddingBottom: 16 } : { paddingTop, paddingBottom }}
     >
-      <div
-        className={`relative z-10 isolate grid w-full grid-cols-[auto_1fr_auto] items-center gap-2 overflow-hidden rounded-full border border-border bg-card/90 px-3 py-2 shadow-[0_12px_40px_hsl(var(--foreground)/.10)] backdrop-blur-xl transition-[max-width,box-shadow,margin] dark:bg-card/95 dark:shadow-[0_12px_40px_hsl(var(--background)/.55)] sm:gap-3 sm:px-5 sm:py-2.5 ${motionClass} ${
-          isCompact
-            ? 'mx-auto max-w-2xl shadow-[0_10px_32px_hsl(var(--foreground)/.09)] sm:max-w-3xl md:max-w-4xl lg:max-w-[880px]'
-            : ''
-        }`}
-      >
+      <div className="flex w-full justify-center">
+        <motion.div
+          className="relative z-10 isolate grid w-full grid-cols-[auto_1fr_auto] items-center gap-2 overflow-hidden rounded-full border border-border bg-card/90 px-3 py-2 backdrop-blur-xl dark:bg-card/95 sm:gap-3 sm:px-5 sm:py-2.5"
+          initial={false}
+          style={
+            reduceMotion
+              ? { maxWidth: 1240, boxShadow: '0 12px 40px hsl(var(--foreground) / 0.10)' }
+              : { maxWidth: barMaxWidth, boxShadow: barShadow, width: '100%' }
+          }
+        >
         <Link href="/" data-testid="link-header-logo" className="focus-ring shrink-0 rounded-full px-0.5 sm:px-1">
-          <motion.div
-            className="flex items-center"
-            initial={{ scale: 0.96, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.25 }}
-          >
+          <div className="flex items-center">
             <BarsLogo size="md" />
-          </motion.div>
+          </div>
         </Link>
 
         <nav
-          className={`hidden min-w-0 items-center justify-center md:flex gap-0.5 lg:gap-1 transition-[gap] ${motionClass}`}
+          className="hidden min-w-0 items-center justify-center gap-0.5 md:flex lg:gap-1"
           aria-label="Primary"
         >
-          {navItems.map((item, index) => {
+          {navItems.map((item) => {
             const active = item.href === location;
             return (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.28, delay: index * 0.05 }}
-                whileHover={{ scale: 1.04 }}
-                className="shrink-0"
-              >
+              <div key={item.href} className="shrink-0">
                 <Link
                   href={item.href}
                   data-testid={`link-nav-${item.label.toLowerCase().replaceAll(' ', '-')}`}
-                  className={`focus-ring inline-flex h-9 items-center whitespace-nowrap rounded-full px-2.5 text-sm font-medium transition-[padding,color,background-color] lg:px-3.5 ${motionClass} ${active ? 'bg-secondary/15 text-secondary' : 'text-foreground/80 hover:text-foreground'}`}
+                  className={`focus-ring inline-flex h-9 items-center whitespace-nowrap rounded-full px-2.5 text-sm font-medium transition-colors duration-200 lg:px-3.5 ${active ? 'bg-secondary/15 text-secondary' : 'text-foreground/80 hover:text-foreground'}`}
                 >
                   {item.label}
                 </Link>
-              </motion.div>
+              </div>
             );
           })}
         </nav>
@@ -235,17 +223,17 @@ export function Navbar1() {
             <ThemeToggle />
           </div>
 
-          <motion.button
+          <button
             type="button"
             aria-label="Open navigation"
             data-testid="button-open-menu"
             className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-foreground md:hidden"
             onClick={() => setIsOpen(true)}
-            whileTap={{ scale: 0.92 }}
           >
             <Menu size={20} />
-          </motion.button>
+          </button>
         </div>
+      </motion.div>
       </div>
 
       <AnimatePresence>
@@ -308,6 +296,6 @@ export function Navbar1() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
